@@ -147,25 +147,25 @@
   .pre-mark .pl.amber{ color: var(--amber); }
   @keyframes preLetterUp{ to{ opacity: 1; transform: translateY(0); } }
 
-  .pre-road{
+  .pre-track{
     position: relative;
     width: min(74vw, 360px);
-    height: 34px;
+    height: 3px;
     margin: var(--space-4) auto 0;
-  }
-  .pre-road-line{
-    position: absolute; left: 0; right: 0; top: 50%; height: 2px;
-    transform: translateY(-50%);
-    background-image: repeating-linear-gradient(90deg, rgba(244,166,35,0.35) 0 14px, transparent 14px 26px);
+    background: rgba(236,238,239,0.12);
+    border-radius: 2px;
     opacity: 0;
     animation: preFade .4s ease forwards .35s;
   }
+  .pre-fill{
+    position: absolute; left: 0; top: 0; height: 100%; width: 0%;
+    background: var(--amber);
+    border-radius: 2px;
+  }
   .pre-bus{
-    position: absolute; top: 50%; left: -46px;
-    width: 46px;
-    transform: translateY(-58%);
-    opacity: 0;
-    animation: preFade .3s ease forwards .35s, preBusDrive 1.35s cubic-bezier(.45,0,.4,1) forwards .4s;
+    position: absolute; top: 50%; left: 0%;
+    width: 44px;
+    transform: translate(-50%, -68%);
   }
   .pre-bus svg{ width: 100%; height: auto; display: block; }
   .pre-bus .pb-body{ fill: var(--asphalt-2); stroke: var(--amber); stroke-width: 2.4; }
@@ -176,7 +176,6 @@
     transform-box: fill-box; transform-origin: center;
     animation: wheelSpin 0.4s linear infinite;
   }
-  @keyframes preBusDrive{ to{ left: calc(100% - 2px); } }
 
   .pre-meta{
     margin-top: var(--space-3);
@@ -293,11 +292,11 @@
   .mobile-menu a{
     display: flex; align-items: center; justify-content: space-between;
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     text-transform: uppercase;
     letter-spacing: 0.01em;
     color: var(--paper);
-    padding: 0.85rem 0.1rem;
+    padding: 0.65rem 0.1rem;
     opacity: 0;
     transform: translateX(-10px);
     transition: opacity .35s ease, transform .35s ease, color .2s ease;
@@ -353,15 +352,29 @@
   .hero-inner{ position: relative; z-index: 2; }
   .hero-tag{
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--amber);
-    border: 1px solid rgba(244,166,35,0.4);
-    padding: 0.5em 1em;
-    border-radius: 999px;
-    display: inline-block;
+    color: var(--ink);
+    background: var(--paper);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--ink) inset, 3px 3px 0 rgba(0,0,0,0.3);
+    padding: 0.55em 1em 0.55em 1.7em;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
     margin-bottom: var(--space-4);
+  }
+  .hero-tag::before{
+    content: "";
+    position: absolute; left: 0.65em; top: 50%;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--amber-dim);
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 1px rgba(16,22,29,0.15);
   }
   .hero h1{
     font-size: clamp(2.8rem, 7.4vw, 6rem);
@@ -738,6 +751,62 @@
   }
   .why-item p{ font-size: 0.88rem; color: var(--steel-dark); }
 
+  /* ============ MOVED SHOWCASE (animated marquee) ============ */
+  .moved{ background: var(--asphalt); color: var(--paper); overflow: hidden; }
+  .moved .section-head p{ color: var(--steel); }
+  .moved-sub{ margin-top: var(--space-3); color: var(--steel); font-size: 1.02rem; max-width: 56ch; }
+  .moved-marquee{
+    margin-top: var(--space-5);
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+  .moved-track{
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+    white-space: nowrap;
+    width: max-content;
+    animation: movedScroll 34s linear infinite;
+  }
+  .moved-marquee:hover .moved-track{ animation-play-state: paused; }
+  .moved-chip{
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    color: var(--paper);
+    padding: 0.65em 1.15em;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    transition: border-color .3s ease, color .3s ease, background .3s ease, transform .3s ease;
+  }
+  .moved-chip:hover{ border-color: var(--amber); color: var(--amber); background: rgba(244,166,35,0.08); transform: translateY(-2px); }
+  .moved-dot{ color: var(--amber-dim); font-size: 1.1rem; flex-shrink: 0; }
+  @keyframes movedScroll{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+
+  /* ============ FOUNDER: served-organizations list ============ */
+  .founder-served{
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px dashed var(--line-dark);
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .6s ease .4s, transform .6s ease .4s;
+  }
+  [data-reveal].in-view .founder-served{ opacity: 1; transform: translateY(0); }
+  .founder-served .eyebrow{ margin-bottom: var(--space-3); display: inline-flex; }
+  .served-grid{ display: grid; grid-template-columns: 1fr 1fr; }
+  .served-item{
+    display: flex; align-items: baseline; gap: 0.7em;
+    padding: 0.6em 0.8em 0.6em 0;
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .served-item:nth-child(odd){ border-right: 1px solid var(--line-dark); padding-left: 0; }
+  .served-item:nth-child(even){ padding-left: 0.8em; }
+  .s-index{ font-family: var(--font-mono); font-size: 0.62rem; color: var(--amber-dim); min-width: 2.4ch; flex-shrink: 0; }
+  .s-name{ font-family: var(--font-mono); font-size: 0.82rem; color: var(--steel-dark); line-height: 1.4; }
+
   /* ============ FOUNDER ============ */
   .founder{ background: var(--paper); }
   .founder-grid{
@@ -863,6 +932,7 @@
   .contact-card .eyebrow{ margin-bottom: var(--space-2); }
   .contact-card strong{
     display:block; font-family: var(--font-mono); font-size: 1rem; color: var(--paper);
+    overflow-wrap: anywhere; word-break: break-word;
   }
 
   /* Social row */
@@ -943,6 +1013,9 @@
     .why-row{ grid-template-columns: 1fr 1fr; row-gap: var(--space-4); }
     .why-item{ border-left: none; padding-left: 0; }
     .contact-grid{ grid-template-columns: 1fr; }
+    .served-grid{ grid-template-columns: 1fr; }
+    .served-item:nth-child(odd){ border-right: none; padding-left: 0; }
+    .served-item:nth-child(even){ padding-left: 0; }
     section{ padding: var(--space-6) 0; }
   }
   @media (max-width: 560px){
@@ -963,10 +1036,12 @@
     .wa-float{ width: 50px; height: 50px; right: 14px; bottom: 14px; }
     .wa-float svg{ width: 26px; height: 26px; }
     .social-row{ flex-wrap: wrap; }
+    .contact-card strong{ font-size: 0.88rem; }
   }
   @media (max-width: 380px){
     .fleet-specs{ grid-template-columns: 1fr; }
     .service-index{ display:none; }
+    .contact-card strong{ font-size: 0.8rem; }
   }
 
   /* ============================================================
@@ -987,18 +1062,7 @@
   .hero-tag{ opacity: 0; transform: translateY(-8px); animation: tagDrop .6s ease forwards .3s; }
   @keyframes tagDrop{ to{ opacity:1; transform: translateY(0); } }
 
-  /* --- Hero: cursor glow + staggered word reveal + scroll cue --- */
-  .hero{ isolation: isolate; }
-  .hero-glow{
-    position: absolute;
-    left: var(--gx, 50%); top: var(--gy, 30%);
-    width: 560px; height: 560px;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(244,166,35,0.16) 0%, rgba(244,166,35,0.05) 40%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-    transition: opacity .4s ease;
-  }
+  /* --- Hero: staggered word reveal + scroll cue --- */
   .word{
     display: inline-block;
     opacity: 0;
@@ -1039,18 +1103,6 @@
   [data-reveal-group].in-view > *:nth-child(4){ transition-delay: .22s; }
   [data-reveal-group].in-view > *:nth-child(5){ transition-delay: .28s; }
   [data-reveal-group].in-view > *:nth-child(6){ transition-delay: .34s; }
-
-  /* --- Buttons: shine sweep on hover --- */
-  .btn{ position: relative; overflow: hidden; }
-  .btn::before{
-    content: "";
-    position: absolute; top:0; left:-60%; width: 40%; height: 100%;
-    background: linear-gradient(115deg, transparent, rgba(255,255,255,0.5), transparent);
-    transform: skewX(-20deg);
-    transition: left .55s ease;
-    pointer-events: none;
-  }
-  .btn:hover::before{ left: 130%; }
 
   /* --- Cards: lift + glow + icon motion on hover --- */
   .service, .why-item, .contact-card, .stub, .fleet-visual{
@@ -1111,7 +1163,6 @@
   .stub-label{ position: relative; }
 
   @media (max-width: 900px){
-    .hero-glow{ width: 380px; height: 380px; }
     [data-reveal-group].in-view > *{ transition-delay: 0s !important; }
   }
 
@@ -1127,9 +1178,9 @@
   <div id="preloader">
     <div class="pre-inner">
       <div class="pre-mark" id="preMark"></div>
-      <div class="pre-road">
-        <div class="pre-road-line"></div>
-        <div class="pre-bus">
+      <div class="pre-track">
+        <div class="pre-fill" id="preFill"></div>
+        <div class="pre-bus" id="preBus">
           <svg viewBox="0 0 120 46" xmlns="http://www.w3.org/2000/svg">
             <rect class="pb-body" x="4" y="8" width="112" height="28" rx="7"/>
             <rect class="pb-stripe" x="4" y="26" width="112" height="4"/>
@@ -1157,8 +1208,6 @@
       </a>
       <ul class="nav-links">
         <li><a href="services.html">Services</a></li>
-        <li><a href="#fleet">Fleet</a></li>
-        <li><a href="#why">Why Us</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1179,7 +1228,6 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="heroSection">
-    <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
     <div class="wrap hero-inner">
       <span class="hero-tag">Lagos &middot; Nationwide &middot; BN 8873046</span>
       <h1>
@@ -1319,7 +1367,7 @@
   <section class="services" id="services">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <span class="eyebrow light-eyebrow">Six Lanes of Service</span>
+        <span class="eyebrow light-eyebrow">Eight Lanes of Service</span>
         <h2>Whatever the movement, we handle it.</h2>
         <p>One provider for every kind of transport need — no juggling vendors, no gaps in accountability.</p>
       </div>
@@ -1360,6 +1408,18 @@
           <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h6M9 16h6"/></svg></div>
           <h3>Executive Vehicle Lease</h3>
           <p>Long-term leasing for businesses, NGOs and government agencies — prestige without ownership costs.</p>
+        </a>
+        <a class="service" href="services.html#nysc-travel">
+          <span class="service-index">07</span>
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 11h-11z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M9 12h6"/></svg></div>
+          <h3>NYSC Travel</h3>
+          <p>Camp drop-off, PPA relocation and group travel for corps members — coordinated door to door.</p>
+        </a>
+        <a class="service" href="services.html#car-rental">
+          <span class="service-index">08</span>
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16l1.5-6.5A2 2 0 0 1 6.4 8h11.2a2 2 0 0 1 1.9 1.5L21 16"/><rect x="2.5" y="16" width="19" height="4.5" rx="1.5"/><circle cx="7" cy="20.5" r="1.3"/><circle cx="17" cy="20.5" r="1.3"/></svg></div>
+          <h3>Car Rental</h3>
+          <p>Sedans and SUVs with a driver, for airport runs, errands or everyday use — no lease commitment.</p>
         </a>
       </div>
 
@@ -1531,7 +1591,7 @@
         </div>
         <div class="why-item">
           <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v3M16 4v3"/></svg></div>
-          <h3>Six Services, One Provider</h3>
+          <h3>Eight Services, One Provider</h3>
           <p>No juggling vendors for different transport needs.</p>
         </div>
         <div class="why-item">
@@ -1539,6 +1599,55 @@
           <h3>24/7 Availability</h3>
           <p>Last-minute or long planned — dispatch never sleeps.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUSTED / WHO WE'VE MOVED ============ -->
+  <!-- ============ MOVED SHOWCASE (animated) ============ -->
+  <section class="moved" id="moved">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Trusted By</span>
+        <h2>The people who've ridden with us.</h2>
+        <p class="moved-sub">Churches, student unions and events across Lagos have called on D-General to move their people — real reviews coming soon as clients share them.</p>
+      </div>
+    </div>
+    <div class="moved-marquee" data-reveal aria-label="Organizations D-General has worked with">
+      <div class="moved-track">
+        <span class="moved-chip">Harvesters Church</span>
+        <span class="moved-dot">&bull;</span>
+        <span class="moved-chip">Lagos State University Student Union</span>
+        <span class="moved-dot">&bull;</span>
+        <span class="moved-chip">God's Remnant Assembly</span>
+        <span class="moved-dot">&bull;</span>
+        <span class="moved-chip">Logic Church, Lekki</span>
+        <span class="moved-dot">&bull;</span>
+        <span class="moved-chip">Dominion City Church, Festac</span>
+        <span class="moved-dot">&bull;</span>
+        <span class="moved-chip">GINN by Saint of Africa</span>
+        <span class="moved-dot">&bull;</span>
+        <span class="moved-chip">Mentors</span>
+        <span class="moved-dot">&bull;</span>
+        <span class="moved-chip">Lagos Shopping Festival</span>
+        <span class="moved-dot">&bull;</span>
+        <!-- duplicate set for seamless loop -->
+        <span class="moved-chip" aria-hidden="true">Harvesters Church</span>
+        <span class="moved-dot" aria-hidden="true">&bull;</span>
+        <span class="moved-chip" aria-hidden="true">Lagos State University Student Union</span>
+        <span class="moved-dot" aria-hidden="true">&bull;</span>
+        <span class="moved-chip" aria-hidden="true">God's Remnant Assembly</span>
+        <span class="moved-dot" aria-hidden="true">&bull;</span>
+        <span class="moved-chip" aria-hidden="true">Logic Church, Lekki</span>
+        <span class="moved-dot" aria-hidden="true">&bull;</span>
+        <span class="moved-chip" aria-hidden="true">Dominion City Church, Festac</span>
+        <span class="moved-dot" aria-hidden="true">&bull;</span>
+        <span class="moved-chip" aria-hidden="true">GINN by Saint of Africa</span>
+        <span class="moved-dot" aria-hidden="true">&bull;</span>
+        <span class="moved-chip" aria-hidden="true">Mentors</span>
+        <span class="moved-dot" aria-hidden="true">&bull;</span>
+        <span class="moved-chip" aria-hidden="true">Lagos Shopping Festival</span>
+        <span class="moved-dot" aria-hidden="true">&bull;</span>
       </div>
     </div>
   </section>
@@ -1556,6 +1665,19 @@
           <span>Lagos Based</span>
           <span>Nationwide Coverage</span>
           <span>3,500+ Deliveries</span>
+        </div>
+        <div class="founder-served">
+          <span class="eyebrow light-eyebrow">Who We've Moved</span>
+          <div class="served-grid">
+            <div class="served-item"><span class="s-index">M01</span><span class="s-name">Harvesters Church</span></div>
+            <div class="served-item"><span class="s-index">M02</span><span class="s-name">Lagos State University Student Union</span></div>
+            <div class="served-item"><span class="s-index">M03</span><span class="s-name">God's Remnant Assembly</span></div>
+            <div class="served-item"><span class="s-index">M04</span><span class="s-name">Logic Church, Lekki</span></div>
+            <div class="served-item"><span class="s-index">M05</span><span class="s-name">Dominion City Church, Festac</span></div>
+            <div class="served-item"><span class="s-index">M06</span><span class="s-name">GINN — GenZ Involvement in New Nigeria, by Saint of Africa</span></div>
+            <div class="served-item"><span class="s-index">M07</span><span class="s-name">Mentors</span></div>
+            <div class="served-item"><span class="s-index">M08</span><span class="s-name">Lagos Shopping Festival</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1746,12 +1868,17 @@
     }
     const pctEl = document.getElementById('prePct');
     const tagEl = document.getElementById('preTag');
+    const fillEl = document.getElementById('preFill');
+    const busEl = document.getElementById('preBus');
     const reduceMotionPre = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const duration = reduceMotionPre ? 50 : 1500;
     const start = performance.now();
     function tick(now){
       const p = Math.min((now - start) / duration, 1);
-      if(pctEl) pctEl.textContent = Math.round(p * 100) + '%';
+      const pct = p * 100;
+      if(pctEl) pctEl.textContent = Math.round(pct) + '%';
+      if(fillEl) fillEl.style.width = pct + '%';
+      if(busEl) busEl.style.left = pct + '%';
       if(p < 1) requestAnimationFrame(tick);
       else if(tagEl) tagEl.textContent = 'Ready to roll';
     }
@@ -1849,16 +1976,6 @@
       });
     }, { threshold: 0, rootMargin: '-45% 0px -50% 0px' });
     spySections.forEach(sec => spyIo.observe(sec));
-  }
-
-  // Hero: cursor-follow glow (desktop pointer only)
-  const heroGlow = document.getElementById('heroGlow');
-  if(heroGlow && heroSection && window.matchMedia('(hover: hover)').matches && !reduceMotion){
-    heroSection.addEventListener('mousemove', (e) => {
-      const r = heroSection.getBoundingClientRect();
-      heroGlow.style.setProperty('--gx', (e.clientX - r.left) + 'px');
-      heroGlow.style.setProperty('--gy', (e.clientY - r.top) + 'px');
-    });
   }
 
   // Subtle scroll parallax for [data-parallax] layers
