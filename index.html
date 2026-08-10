@@ -203,7 +203,7 @@
   /* ============ NAV ============ */
   header{
     position: fixed; top:0; left:0; right:0; z-index: 200;
-    background: rgba(16,22,29,0.86);
+    background: rgba(16,22,29,0.94);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
@@ -214,7 +214,11 @@
     margin: 0 auto;
   }
   .brand{ display: flex; align-items: center; }
-  .brand-logo{ height: 38px; width: auto; display: block; }
+  .brand-logo{ height: 48px; width: auto; display: block; filter: drop-shadow(0 1px 4px rgba(0,0,0,0.55)); }
+  .brand-fallback{ display: none; flex-direction: column; line-height: 1; color: var(--paper); }
+  .brand-fallback b{ font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.02em; text-transform: uppercase; }
+  .brand-fallback b span{ color: var(--green); }
+  .brand-fallback small{ font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.24em; color: var(--steel); margin-top: 2px; }
   .nav-links{
     display: flex; gap: var(--space-4);
     font-family: var(--font-mono);
@@ -1003,7 +1007,8 @@
   }
   @media (max-width: 560px){
     .nav{ padding: 0.9rem var(--space-3); }
-    .brand-logo{ height: 32px; }
+    .brand-logo{ height: 38px; }
+    .brand-fallback b{ font-size: 1.25rem; }
     .hero{ padding: calc(var(--space-6) + 1.6rem) 0 var(--space-4); }
     .hero-tag{ font-size: 0.62rem; padding: 0.45em 0.8em; }
     .hero-sub{ font-size: 0.98rem; }
@@ -1108,12 +1113,7 @@
   .stub-num.count-done{ animation: countPop .4s ease; }
   @keyframes countPop{ 0%{ transform: scale(1); } 40%{ transform: scale(1.08); } 100%{ transform: scale(1); } }
 
-  /* --- Founder photo: clip-path wipe reveal --- */
-  .founder-photo{
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path .9s cubic-bezier(.4,0,.2,1);
-  }
-  .founder-photo.in-view{ clip-path: inset(0 0% 0 0); }
+  /* --- Founder photo: simple fade-up reveal (matches standard [data-reveal] behavior) --- */
   .founder-quote, .founder-bio, .founder-tags{
     opacity: 0; transform: translateY(14px);
     transition: opacity .6s ease, transform .6s ease;
@@ -1178,7 +1178,11 @@
   <header>
     <nav class="nav">
       <a href="#" class="brand">
-        <img src="logo-light.png" alt="D-General Transport Consult" class="brand-logo">
+        <img src="logo-light.png" alt="D-General Transport Consult" class="brand-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="brand-fallback">
+          <b>D-<span>General</span></b>
+          <small>TRANSPORT CONSULT</small>
+        </span>
       </a>
       <ul class="nav-links">
         <li><a href="services.html">Services</a></li>
