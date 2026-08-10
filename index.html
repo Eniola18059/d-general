@@ -203,9 +203,8 @@
   /* ============ NAV ============ */
   header{
     position: fixed; top:0; left:0; right:0; z-index: 200;
-    background: rgba(16,22,29,0.94);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    border-bottom: 1px solid var(--line-dark);
   }
   .nav{
     display: flex; align-items: center; justify-content: space-between;
@@ -214,8 +213,8 @@
     margin: 0 auto;
   }
   .brand{ display: flex; align-items: center; }
-  .brand-logo{ height: 48px; width: auto; display: block; filter: drop-shadow(0 1px 4px rgba(0,0,0,0.55)); }
-  .brand-fallback{ display: none; flex-direction: column; line-height: 1; color: var(--paper); }
+  .brand-logo{ height: 48px; width: auto; display: block; }
+  .brand-fallback{ display: none; flex-direction: column; line-height: 1; color: var(--ink); }
   .brand-fallback b{ font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.02em; text-transform: uppercase; }
   .brand-fallback b span{ color: var(--green); }
   .brand-fallback small{ font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.24em; color: var(--steel); margin-top: 2px; }
@@ -227,7 +226,7 @@
     text-transform: uppercase;
   }
   .nav-links a{
-    color: var(--steel);
+    color: var(--steel-dark);
     position: relative;
     padding-bottom: 4px;
     transition: color .25s ease;
@@ -236,7 +235,7 @@
     content:""; position:absolute; left:0; bottom:0; height:1px; width:0;
     background: var(--green); transition: width .3s ease;
   }
-  .nav-links a:hover{ color: var(--paper); }
+  .nav-links a:hover{ color: var(--green); }
   .nav-links a:hover::after{ width: 100%; }
   .nav-cta{ display:flex; align-items:center; gap: var(--space-3); }
 
@@ -245,13 +244,13 @@
     position: relative;
     display:none; flex-direction:column; align-items:center; justify-content:center;
     width: 42px; height: 42px;
-    background: rgba(236,238,239,0.06);
-    border: 1px solid var(--line);
+    background: rgba(16,22,29,0.05);
+    border: 1px solid var(--line-dark);
     border-radius: var(--radius);
     z-index: 300;
   }
   .burger span{
-    width: 18px; height: 2px; background: var(--paper); display:block;
+    width: 18px; height: 2px; background: var(--ink); display:block;
     position: absolute;
     transition: transform .32s cubic-bezier(.6,.2,.2,1), opacity .2s ease, top .32s ease;
   }
@@ -266,8 +265,8 @@
   .mobile-menu{
     display: none;
     position: absolute; top: 100%; left: 0; right: 0;
-    background: var(--ink);
-    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    border-bottom: 1px solid var(--line-dark);
     padding: var(--space-2) var(--space-4) var(--space-4);
     max-height: 0;
     overflow: hidden;
@@ -275,7 +274,7 @@
   }
   .mobile-menu.open{ display: block; max-height: 80vh; }
   .mobile-menu ul{ display: flex; flex-direction: column; }
-  .mobile-menu li{ border-top: 1px solid var(--line); }
+  .mobile-menu li{ border-top: 1px solid var(--line-dark); }
   .mobile-menu li:first-child{ border-top: none; }
   .mobile-menu a{
     display: flex; align-items: center; justify-content: space-between;
@@ -283,7 +282,7 @@
     font-size: 1.15rem;
     text-transform: uppercase;
     letter-spacing: 0.01em;
-    color: var(--paper);
+    color: var(--ink);
     padding: 0.65rem 0.1rem;
     opacity: 0;
     transform: translateX(-10px);
@@ -311,7 +310,7 @@
   .mobile-menu-foot{
     margin-top: var(--space-3);
     padding-top: var(--space-3);
-    border-top: 1px dashed var(--line);
+    border-top: 1px dashed var(--line-dark);
     display: flex; gap: var(--space-2);
   }
   .mobile-menu-foot .btn{
@@ -1178,7 +1177,7 @@
   <header>
     <nav class="nav">
       <a href="#" class="brand">
-        <img src="logo-light.png" alt="D-General Transport Consult" class="brand-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <img src="logo.png" alt="D-General Transport Consult" class="brand-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <span class="brand-fallback">
           <b>D-<span>General</span></b>
           <small>TRANSPORT CONSULT</small>
@@ -1198,7 +1197,7 @@
     <div class="mobile-menu" id="mobileMenu">
       <ul id="mobileMenuList"></ul>
       <div class="mobile-menu-foot">
-        <a href="tel:07025610836" class="btn btn-outline">Call</a>
+        <a href="tel:07025610836" class="btn btn-outline on-light">Call</a>
         <a href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20enquire%20about%20your%20transport%20services." class="btn btn-primary">WhatsApp</a>
       </div>
     </div>
