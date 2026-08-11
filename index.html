@@ -46,7 +46,8 @@
     font-family: var(--font-body);
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.5;
+    font-size: 16.5px;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -89,7 +90,7 @@
 
   .btn{
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     padding: 0.95em 1.6em;
@@ -201,6 +202,16 @@
   @keyframes preFade{ to{ opacity: 1; } }
 
   /* ============ NAV ============ */
+  #scrollProgress{
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 3px;
+    z-index: 300;
+    background: var(--green);
+    transform-origin: left;
+    transform: scaleX(0);
+    will-change: transform;
+    pointer-events: none;
+  }
   header{
     position: fixed; top:0; left:0; right:0; z-index: 200;
     background: var(--paper);
@@ -372,6 +383,24 @@
     transform: translateY(-50%);
     box-shadow: 0 0 0 1px rgba(16,22,29,0.15);
   }
+  .hero-nickname{
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--green);
+    margin-bottom: var(--space-3);
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .hero-nickname::before{
+    content: "";
+    width: 28px; height: 3px;
+    background: var(--green);
+    display: inline-block;
+  }
   .hero h1{
     font-size: clamp(2.8rem, 7.4vw, 6rem);
     max-width: 14ch;
@@ -398,7 +427,7 @@
     border-radius: var(--radius);
     padding: 0.7em 1.1em;
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.88rem;
   }
   .dispatch-dot{
     width: 7px; height: 7px; border-radius: 50%;
@@ -712,7 +741,7 @@
     margin-bottom: 0.5em;
   }
   .service p{
-    font-size: 0.92rem;
+    font-size: 0.98rem;
     color: var(--steel-dark);
   }
   .service-index{
@@ -739,6 +768,19 @@
   .why-item:first-child{ border-left: none; padding-left: 0; }
   .why-icon{ width: 30px; height:30px; color: var(--green-dim); margin-bottom: var(--space-2); }
   .why-icon svg{ width:100%; height:100%; }
+  .why-icon svg path, .why-icon svg circle{
+    stroke-dasharray: 70;
+    stroke-dashoffset: 70;
+    transition: stroke-dashoffset 1s ease;
+  }
+  [data-reveal-group].in-view .why-item:nth-child(1) .why-icon svg path,
+  [data-reveal-group].in-view .why-item:nth-child(1) .why-icon svg circle{ transition-delay: .1s; stroke-dashoffset: 0; }
+  [data-reveal-group].in-view .why-item:nth-child(2) .why-icon svg path,
+  [data-reveal-group].in-view .why-item:nth-child(2) .why-icon svg circle{ transition-delay: .18s; stroke-dashoffset: 0; }
+  [data-reveal-group].in-view .why-item:nth-child(3) .why-icon svg path,
+  [data-reveal-group].in-view .why-item:nth-child(3) .why-icon svg circle{ transition-delay: .26s; stroke-dashoffset: 0; }
+  [data-reveal-group].in-view .why-item:nth-child(4) .why-icon svg path,
+  [data-reveal-group].in-view .why-item:nth-child(4) .why-icon svg circle{ transition-delay: .34s; stroke-dashoffset: 0; }
   .why-item h3{
     font-family: var(--font-body);
     text-transform: none;
@@ -747,7 +789,7 @@
     letter-spacing: 0;
     margin-bottom: 0.4em;
   }
-  .why-item p{ font-size: 0.88rem; color: var(--steel-dark); }
+  .why-item p{ font-size: 0.94rem; color: var(--steel-dark); }
 
   /* ============ MOVED SHOWCASE (animated marquee) ============ */
   .moved{ background: var(--asphalt); color: var(--paper); overflow: hidden; }
@@ -890,7 +932,7 @@
   .faq-a p{
     padding: 0 0 var(--space-3) calc(0.72rem + var(--space-2) + 1ch);
     color: var(--steel-dark);
-    font-size: 0.95rem;
+    font-size: 1.01rem;
     max-width: 58ch;
   }
 
@@ -1010,7 +1052,7 @@
     .brand-fallback b{ font-size: 1.25rem; }
     .hero{ padding: calc(var(--space-6) + 1.6rem) 0 var(--space-4); }
     .hero-tag{ font-size: 0.62rem; padding: 0.45em 0.8em; }
-    .hero-sub{ font-size: 0.98rem; }
+    .hero-sub{ font-size: 1.04rem; }
     .service-grid{ grid-template-columns: 1fr; }
     .why-row{ grid-template-columns: 1fr; }
     .hero-actions{ flex-direction: column; align-items: stretch; }
@@ -1022,7 +1064,7 @@
     .wa-float{ width: 50px; height: 50px; right: 14px; bottom: 14px; }
     .wa-float svg{ width: 26px; height: 26px; }
     .social-row{ flex-wrap: wrap; }
-    .contact-card strong{ font-size: 0.88rem; }
+    .contact-card strong{ font-size: 0.94rem; }
   }
   @media (max-width: 380px){
     .service-index{ display:none; }
@@ -1174,6 +1216,7 @@
     </div>
   </div>
 
+  <div id="scrollProgress" aria-hidden="true"></div>
   <header>
     <nav class="nav">
       <a href="#" class="brand">
@@ -1210,6 +1253,7 @@
     </div>
     <div class="wrap hero-inner">
       <span class="hero-tag">Lagos &middot; Nationwide &middot; BN 8873046</span>
+      <div class="hero-nickname">Coaster Bus Specialists</div>
       <h1>
         <span class="word" style="animation-delay:.55s">Book</span> <span class="word" style="animation-delay:.63s">it</span> <span class="word" style="animation-delay:.71s">once.</span><br>
         <span class="word" style="animation-delay:.83s">We</span> <span class="word" style="animation-delay:.91s">handle</span><br>
@@ -1359,7 +1403,7 @@
             <img src="service-bus-hire.jpg" alt="Executive Bus Hire" loading="lazy" onerror="this.closest('.service-thumb').classList.add('img-pending')">
           </div>
           <h3>Executive Bus Hire</h3>
-          <p>Premium, air-conditioned coaches for corporate events, church outings, school trips and special occasions.</p>
+          <p>Premium, air-conditioned coasters for corporate events, church outings, school trips and special occasions.</p>
         </a>
         <a class="service" href="services.html#vehicle-purchase-assistance">
           <span class="service-index">02</span>
@@ -1683,7 +1727,7 @@
             <span class="faq-q-text">Do you provide a driver with bus rentals?</span>
             <span class="faq-icon"></span>
           </button>
-          <div class="faq-a"><p>Yes. Every bus hire and rental comes with a vetted, experienced driver. Self-drive is not offered for executive coaches.</p></div>
+          <div class="faq-a"><p>Yes. Every bus hire and rental comes with a vetted, experienced driver. Self-drive is not offered for executive coasters.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q">
@@ -2023,6 +2067,23 @@
       }
     });
   });
+
+  // Scroll progress bar (single rAF-throttled listener, transform-only for cheap compositing)
+  const scrollProgressEl = document.getElementById('scrollProgress');
+  if(scrollProgressEl){
+    let progressTicking = false;
+    const updateProgress = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+      scrollProgressEl.style.transform = 'scaleX(' + pct + ')';
+      progressTicking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if(!progressTicking){ requestAnimationFrame(updateProgress); progressTicking = true; }
+    }, { passive: true });
+    updateProgress();
+  }
 
   // Mobile menu: burger <-> X, opens a styled dropdown panel, closes on link click or outside tap
   const burger = document.getElementById('burgerBtn');
