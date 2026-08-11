@@ -46,7 +46,8 @@
     font-family: var(--font-body);
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.5;
+    font-size: 16.5px;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -91,7 +92,7 @@
 
   .btn{
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     padding: 0.95em 1.6em;
@@ -118,6 +119,16 @@
   [data-reveal].in-view{ opacity: 1; transform: translateY(0); }
 
   /* ============ NAV (identical to homepage) ============ */
+  #scrollProgress{
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 3px;
+    z-index: 300;
+    background: var(--green);
+    transform-origin: left;
+    transform: scaleX(0);
+    will-change: transform;
+    pointer-events: none;
+  }
   header{
     position: fixed; top:0; left:0; right:0; z-index: 200;
     background: var(--paper);
@@ -417,7 +428,7 @@
     position: relative;
     padding-left: 1.3em;
     margin-bottom: 0.6em;
-    font-size: 0.92rem;
+    font-size: 0.98rem;
     color: var(--ink);
   }
   .svc-included li::before{
@@ -434,7 +445,7 @@
     position: relative;
     padding-left: 2.1em;
     margin-bottom: 0.85em;
-    font-size: 0.92rem;
+    font-size: 0.98rem;
     color: var(--ink);
   }
   .svc-steps li::before{
@@ -566,6 +577,7 @@
 </head>
 <body>
 
+  <div id="scrollProgress" aria-hidden="true"></div>
   <header>
     <nav class="nav">
       <a href="index.html" class="brand">
@@ -672,20 +684,20 @@
     <div class="wrap svc-detail-grid" data-reveal>
       <figure class="svc-photo">
         <div class="svc-photo-frame" data-pending-label="service-bus-hire.jpg — add photo">
-          <img src="service-bus-hire.jpg" alt="D-General executive coach for hire" loading="lazy" onerror="this.closest('.svc-photo-frame').classList.add('img-pending')">
+          <img src="service-bus-hire.jpg" alt="D-General executive coaster for hire" loading="lazy" onerror="this.closest('.svc-photo-frame').classList.add('img-pending')">
         </div>
-        <figcaption class="svc-photo-cap">Executive coach, ready for dispatch</figcaption>
+        <figcaption class="svc-photo-cap">Executive coaster, ready for dispatch</figcaption>
       </figure>
       <div>
         <span class="svc-index">01 / 08</span>
         <h2>Executive Bus Hire</h2>
-        <p class="svc-overview">Premium, air-conditioned coaches for corporate events, church programs, school trips, weddings and other group outings — a clean cabin, a professional driver, and a vehicle that matches the occasion.</p>
+        <p class="svc-overview">Premium, air-conditioned coasters for corporate events, church programs, school trips, weddings and other group outings — a clean cabin, a professional driver, and a vehicle that matches the occasion.</p>
 
         <div class="svc-columns">
           <div>
             <h4>What's Included</h4>
             <ul class="svc-included" data-reveal-group>
-              <li>Air-conditioned executive coach, up to 30 seats</li>
+              <li>Air-conditioned executive coaster, up to 30 seats</li>
               <li>Experienced, uniformed driver</li>
               <li>Pre-trip inspection and fueling</li>
               <li>Flexible pick-up and drop-off points within Lagos</li>
@@ -698,16 +710,13 @@
               <li>Send your date, route and passenger count on WhatsApp</li>
               <li>We confirm a vehicle and driver for your date</li>
               <li>Pay an agreed deposit to lock in the booking</li>
-              <li>Coach arrives at your pick-up point, ready to go</li>
+              <li>Coaster arrives at your pick-up point, ready to go</li>
             </ol>
           </div>
         </div>
 
         <div class="svc-cta">
-          <a class="btn btn-wa" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Executive%20Bus%20Hire.%20Here%20are%20my%20trip%20details%3A%20">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9C13.5 27.7 14.7 28 16 28c6.6 0 12-5.4 12-13S22.6 3 16 3zm6.3 17.4c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.2-4-.9-3.4-1.3-5.6-4.7-5.8-4.9-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-3c.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.6.3.7.9 2.4 1 2.6.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.4.1.2.1.9-.2 1.6z"/></svg>
-            Book Bus Hire on WhatsApp
-          </a>
+          <a class="btn btn-outline on-light" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Executive%20Bus%20Hire.%20Here%20are%20my%20trip%20details%3A%20">Book This Service &rarr;</a>
           <span class="svc-note">48–72hrs notice recommended</span>
         </div>
       </div>
@@ -751,10 +760,7 @@
         </div>
 
         <div class="svc-cta">
-          <a class="btn btn-wa" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20help%20with%20Vehicle%20Purchase%20Assistance.%20Here%20are%20my%20requirements%3A%20">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9C13.5 27.7 14.7 28 16 28c6.6 0 12-5.4 12-13S22.6 3 16 3zm6.3 17.4c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.2-4-.9-3.4-1.3-5.6-4.7-5.8-4.9-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-3c.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.6.3.7.9 2.4 1 2.6.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.4.1.2.1.9-.2 1.6z"/></svg>
-            Start on WhatsApp
-          </a>
+          <a class="btn btn-outline on-light" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20help%20with%20Vehicle%20Purchase%20Assistance.%20Here%20are%20my%20requirements%3A%20">Book This Service &rarr;</a>
           <span class="svc-note">No fee to get a shortlist started</span>
         </div>
       </div>
@@ -798,10 +804,7 @@
         </div>
 
         <div class="svc-cta">
-          <a class="btn btn-wa" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Interstate%20Delivery.%20Pickup%3A%20___%20Destination%3A%20___%20">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9C13.5 27.7 14.7 28 16 28c6.6 0 12-5.4 12-13S22.6 3 16 3zm6.3 17.4c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.2-4-.9-3.4-1.3-5.6-4.7-5.8-4.9-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-3c.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.6.3.7.9 2.4 1 2.6.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.4.1.2.1.9-.2 1.6z"/></svg>
-            Book Delivery on WhatsApp
-          </a>
+          <a class="btn btn-outline on-light" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Interstate%20Delivery.%20Pickup%3A%20___%20Destination%3A%20___%20">Book This Service &rarr;</a>
           <span class="svc-note">Major routes out of Lagos</span>
         </div>
       </div>
@@ -845,10 +848,7 @@
         </div>
 
         <div class="svc-cta">
-          <a class="btn btn-wa" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Convoy%20Services.%20Event%20date%3A%20___%20Vehicles%20needed%3A%20___%20">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9C13.5 27.7 14.7 28 16 28c6.6 0 12-5.4 12-13S22.6 3 16 3zm6.3 17.4c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.2-4-.9-3.4-1.3-5.6-4.7-5.8-4.9-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-3c.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.6.3.7.9 2.4 1 2.6.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.4.1.2.1.9-.2 1.6z"/></svg>
-            Plan a Convoy on WhatsApp
-          </a>
+          <a class="btn btn-outline on-light" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Convoy%20Services.%20Event%20date%3A%20___%20Vehicles%20needed%3A%20___%20">Book This Service &rarr;</a>
           <span class="svc-note">Best booked 1 week ahead</span>
         </div>
       </div>
@@ -892,10 +892,7 @@
         </div>
 
         <div class="svc-cta">
-          <a class="btn btn-wa" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Bus%20Rental.%20Rental%20period%3A%20___%20">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9C13.5 27.7 14.7 28 16 28c6.6 0 12-5.4 12-13S22.6 3 16 3zm6.3 17.4c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.2-4-.9-3.4-1.3-5.6-4.7-5.8-4.9-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-3c.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.6.3.7.9 2.4 1 2.6.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.4.1.2.1.9-.2 1.6z"/></svg>
-            Book Rental on WhatsApp
-          </a>
+          <a class="btn btn-outline on-light" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Bus%20Rental.%20Rental%20period%3A%20___%20">Book This Service &rarr;</a>
           <span class="svc-note">Daily, weekly & monthly terms</span>
         </div>
       </div>
@@ -939,10 +936,7 @@
         </div>
 
         <div class="svc-cta">
-          <a class="btn btn-wa" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20discuss%20an%20Executive%20Vehicle%20Lease.%20Organization%3A%20___%20">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9C13.5 27.7 14.7 28 16 28c6.6 0 12-5.4 12-13S22.6 3 16 3zm6.3 17.4c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.2-4-.9-3.4-1.3-5.6-4.7-5.8-4.9-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-3c.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.6.3.7.9 2.4 1 2.6.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.4.1.2.1.9-.2 1.6z"/></svg>
-            Discuss a Lease on WhatsApp
-          </a>
+          <a class="btn btn-outline on-light" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20discuss%20an%20Executive%20Vehicle%20Lease.%20Organization%3A%20___%20">Book This Service &rarr;</a>
           <span class="svc-note">For businesses, NGOs & agencies</span>
         </div>
       </div>
@@ -986,10 +980,7 @@
         </div>
 
         <div class="svc-cta">
-          <a class="btn btn-wa" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20NYSC%20Travel.%20Camp%2FRoute%3A%20___%20Date%3A%20___%20Number%20of%20persons%3A%20___%20">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9C13.5 27.7 14.7 28 16 28c6.6 0 12-5.4 12-13S22.6 3 16 3zm6.3 17.4c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.2-4-.9-3.4-1.3-5.6-4.7-5.8-4.9-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-3c.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.6.3.7.9 2.4 1 2.6.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.4.1.2.1.9-.2 1.6z"/></svg>
-            Book NYSC Travel on WhatsApp
-          </a>
+          <a class="btn btn-outline on-light" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20NYSC%20Travel.%20Camp%2FRoute%3A%20___%20Date%3A%20___%20Number%20of%20persons%3A%20___%20">Book This Service &rarr;</a>
           <span class="svc-note">Camp dates & PPA relocation</span>
         </div>
       </div>
@@ -1033,10 +1024,7 @@
         </div>
 
         <div class="svc-cta">
-          <a class="btn btn-wa" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Car%20Rental.%20Dates%3A%20___%20Pickup%20location%3A%20___%20">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.9C13.5 27.7 14.7 28 16 28c6.6 0 12-5.4 12-13S22.6 3 16 3zm6.3 17.4c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.2-4-.9-3.4-1.3-5.6-4.7-5.8-4.9-.2-.2-1.4-1.9-1.4-3.6s.9-2.6 1.2-3c.3-.3.7-.4.9-.4h.7c.2 0 .5 0 .7.6.3.7.9 2.4 1 2.6.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.4 1.1.4.2.6.3.7.4.1.2.1.9-.2 1.6z"/></svg>
-            Book Car Rental on WhatsApp
-          </a>
+          <a class="btn btn-outline on-light" href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20book%20Car%20Rental.%20Dates%3A%20___%20Pickup%20location%3A%20___%20">Book This Service &rarr;</a>
           <span class="svc-note">Sedans & SUVs, daily terms</span>
         </div>
       </div>
@@ -1116,6 +1104,23 @@
     });
   }, { threshold: 0, rootMargin: '-140px 0px -60% 0px' });
   detailSections.forEach(sec => chipIo.observe(sec));
+
+  // Scroll progress bar (single rAF-throttled listener, transform-only for cheap compositing)
+  const scrollProgressEl = document.getElementById('scrollProgress');
+  if(scrollProgressEl){
+    let progressTicking = false;
+    const updateProgress = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+      scrollProgressEl.style.transform = 'scaleX(' + pct + ')';
+      progressTicking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if(!progressTicking){ requestAnimationFrame(updateProgress); progressTicking = true; }
+    }, { passive: true });
+    updateProgress();
+  }
 
   // Mobile menu
   const burger = document.getElementById('burgerBtn');
