@@ -46,7 +46,8 @@
     font-family: var(--font-body);
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.5;
+    font-size: 16.5px;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -81,7 +82,7 @@
 
   .btn{
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     padding: 0.95em 1.6em;
@@ -118,6 +119,16 @@
   [data-reveal-group].in-view > *:nth-child(4){ transition-delay: .22s; }
 
   /* ============ NAV ============ */
+  #scrollProgress{
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 3px;
+    z-index: 300;
+    background: var(--green);
+    transform-origin: left;
+    transform: scaleX(0);
+    will-change: transform;
+    pointer-events: none;
+  }
   header{
     position: fixed; top:0; left:0; right:0; z-index: 200;
     background: var(--paper);
@@ -233,6 +244,24 @@
     pointer-events:none;
   }
   .about-hero-inner{ position: relative; z-index: 2; max-width: 60ch; }
+  .hero-nickname{
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--green);
+    margin-bottom: var(--space-3);
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .hero-nickname::before{
+    content: "";
+    width: 28px; height: 3px;
+    background: var(--green);
+    display: inline-block;
+  }
   .about-hero h1{ font-size: clamp(2.4rem, 6vw, 4.2rem); }
   .about-hero h1 em{ font-style: normal; color: var(--green); }
   .about-hero p{ margin-top: var(--space-3); color: var(--steel); font-size: 1.05rem; max-width: 54ch; }
@@ -329,11 +358,24 @@
   .value-item:first-child{ border-left: none; padding-left: 0; }
   .value-icon{ width: 30px; height:30px; color: var(--green-dim); margin-bottom: var(--space-2); }
   .value-icon svg{ width:100%; height:100%; }
+  .value-icon svg path, .value-icon svg circle{
+    stroke-dasharray: 70;
+    stroke-dashoffset: 70;
+    transition: stroke-dashoffset 1s ease;
+  }
+  [data-reveal-group].in-view .value-item:nth-child(1) .value-icon svg path,
+  [data-reveal-group].in-view .value-item:nth-child(1) .value-icon svg circle{ transition-delay: .1s; stroke-dashoffset: 0; }
+  [data-reveal-group].in-view .value-item:nth-child(2) .value-icon svg path,
+  [data-reveal-group].in-view .value-item:nth-child(2) .value-icon svg circle{ transition-delay: .18s; stroke-dashoffset: 0; }
+  [data-reveal-group].in-view .value-item:nth-child(3) .value-icon svg path,
+  [data-reveal-group].in-view .value-item:nth-child(3) .value-icon svg circle{ transition-delay: .26s; stroke-dashoffset: 0; }
+  [data-reveal-group].in-view .value-item:nth-child(4) .value-icon svg path,
+  [data-reveal-group].in-view .value-item:nth-child(4) .value-icon svg circle{ transition-delay: .34s; stroke-dashoffset: 0; }
   .value-item h3{
     font-family: var(--font-body); text-transform: none; font-weight: 700;
     font-size: 1.05rem; letter-spacing: 0; margin-bottom: 0.4em;
   }
-  .value-item p{ font-size: 0.88rem; color: var(--steel-dark); }
+  .value-item p{ font-size: 0.94rem; color: var(--steel-dark); }
 
   /* ============ MILESTONES ============ */
   .milestones{ background: var(--ink); color: var(--paper); }
@@ -369,7 +411,7 @@
   .served-item:hover{ color: var(--green-dim); padding-left: 1.4em; }
   .served-item:nth-child(odd):hover{ padding-left: 0.4em; }
   .sv-index{ font-family: var(--font-mono); font-size: 0.68rem; color: var(--green-dim); min-width: 2.8ch; flex-shrink: 0; }
-  .sv-name{ font-family: var(--font-mono); font-size: 0.92rem; color: var(--ink); line-height: 1.4; }
+  .sv-name{ font-family: var(--font-mono); font-size: 0.96rem; color: var(--ink); line-height: 1.4; }
   .served-item:hover .sv-name{ color: inherit; }
 
   /* ============ FINAL CTA ============ */
@@ -449,6 +491,7 @@
 </head>
 <body>
 
+  <div id="scrollProgress" aria-hidden="true"></div>
   <header>
     <nav class="nav">
       <a href="index.html" class="brand">
@@ -485,6 +528,7 @@
     </div>
     <div class="wrap about-hero-inner">
       <span class="eyebrow">Our Story</span>
+      <div class="hero-nickname">Coaster Bus Specialists</div>
       <h1>Built on time, <em>one trip at a time.</em></h1>
       <p>D-General Transport Consult started with a simple standard: show up when you say you will. Three years and 3,500+ services later, that standard hasn't changed — only the number of people who count on it has.</p>
       <div class="about-hero-actions">
@@ -534,7 +578,7 @@
         <p class="founder-quote">"Every job we take is a promise to show up <span>on time, every time.</span>"</p>
         <div class="founder-bio">
           <p>Uroh Emmanuel, popularly known as D-General, founded D-General Transport Consult after graduating from Lagos State University. What began as executive bus hire for events around Lagos has grown into a full transport and logistics operation — interstate delivery, convoy coordination, vehicle leasing, NYSC travel and car rental all run under the same standard the business started with.</p>
-          <p>That growth wasn't about chasing every opportunity. Each new service was added because clients kept asking for it — a church that booked a coach for a retreat later needed convoy coordination for a bigger event; a family that rented a car for the weekend later needed help sourcing a vehicle to buy outright. The business grew in the direction its clients pointed it.</p>
+          <p>That growth wasn't about chasing every opportunity. Each new service was added because clients kept asking for it — a church that booked a coaster for a retreat later needed convoy coordination for a bigger event; a family that rented a car for the weekend later needed help sourcing a vehicle to buy outright. The business grew in the direction its clients pointed it.</p>
           <p>Today, D-General operates across Lagos and nationwide, with over 3,500 services delivered and a reputation built less on advertising and more on people calling back the next time they needed to move.</p>
         </div>
         <div class="founder-tags">
@@ -589,15 +633,15 @@
       </div>
       <div class="stat-row" data-reveal-group>
         <div class="stat-stub">
-          <div class="stat-num">3,500+</div>
+          <div class="stat-num" data-count-to="3500" data-suffix="+">0</div>
           <div class="stat-label">Services Delivered</div>
         </div>
         <div class="stat-stub">
-          <div class="stat-num">3+</div>
+          <div class="stat-num" data-count-to="3" data-suffix="+">0</div>
           <div class="stat-label">Years Operating</div>
         </div>
         <div class="stat-stub">
-          <div class="stat-num">8</div>
+          <div class="stat-num" data-count-to="8" data-suffix="">0</div>
           <div class="stat-label">Service Lines</div>
         </div>
       </div>
@@ -674,6 +718,36 @@
   }, { threshold: 0.15 });
   groupEls.forEach(el => groupIo.observe(el));
 
+  // Stat count-up (single rAF loop per element, runs once, respects reduced motion)
+  const reduceMotionAbout = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const countEls = document.querySelectorAll('[data-count-to]');
+  const runCount = (el) => {
+    const target = parseInt(el.getAttribute('data-count-to'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    if(reduceMotionAbout){
+      el.textContent = target.toLocaleString('en-US') + suffix;
+      return;
+    }
+    const duration = 1200;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString('en-US') + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const countIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        runCount(e.target);
+        countIo.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  countEls.forEach(el => countIo.observe(el));
+
   // Nav: firm up with a shadow once scrolled past the hero
   const siteHeader = document.querySelector('header');
   const aboutHero = document.querySelector('.about-hero');
@@ -682,6 +756,23 @@
       entries.forEach(e => siteHeader.classList.toggle('nav-scrolled', !e.isIntersecting));
     }, { threshold: 0, rootMargin: '-73px 0px 0px 0px' });
     navScrollIo.observe(aboutHero);
+  }
+
+  // Scroll progress bar (single rAF-throttled listener, transform-only for cheap compositing)
+  const scrollProgressEl = document.getElementById('scrollProgress');
+  if(scrollProgressEl){
+    let progressTicking = false;
+    const updateProgress = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+      scrollProgressEl.style.transform = 'scaleX(' + pct + ')';
+      progressTicking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if(!progressTicking){ requestAnimationFrame(updateProgress); progressTicking = true; }
+    }, { passive: true });
+    updateProgress();
   }
 
   // Mobile menu
