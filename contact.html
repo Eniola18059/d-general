@@ -3,8 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.dgeneraltransportconsult.com/contact.html">
+<meta name="theme-color" content="#10161D">
 <title>Contact — D-General Transport Consult</title>
 <meta name="description" content="Reach D-General Transport Consult by phone, WhatsApp or email. Lagos-based, nationwide coverage, dispatch available 24/7.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Social sharing preview (Open Graph / Twitter) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="D-General Transport Consult">
+<meta property="og:title" content="Contact — D-General Transport Consult">
+<meta property="og:description" content="Reach D-General Transport Consult by phone, WhatsApp or email. Lagos-based, nationwide coverage, dispatch available 24/7.">
+<meta property="og:image" content="https://www.dgeneraltransportconsult.com/og-image.jpg">
+<meta property="og:url" content="https://www.dgeneraltransportconsult.com/contact.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact — D-General Transport Consult">
+<meta name="twitter:description" content="Reach D-General Transport Consult by phone, WhatsApp or email. Lagos-based, nationwide coverage, dispatch available 24/7.">
+<meta name="twitter:image" content="https://www.dgeneraltransportconsult.com/og-image.jpg">
+
+<!-- Structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "D-General Transport Consult",
+  "image": "https://www.dgeneraltransportconsult.com/logo.png",
+  "url": "https://www.dgeneraltransportconsult.com/",
+  "telephone": "+2347025610836",
+  "email": "dgeneraltransportcounsult@gmail.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lagos",
+    "addressCountry": "NG"
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=D-General+Transport+Consult+Lagos+Nigeria",
+  "areaServed": "Nigeria",
+  "founder": {
+    "@type": "Person",
+    "name": "Uroh Emmanuel"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -99,8 +160,8 @@
   .btn-outline:hover{ border-color: var(--green); color: var(--green); transform: translateY(-2px); }
   .btn-outline.on-light{ border-color: var(--line-dark); color: var(--ink); }
   .btn-outline.on-light:hover{ border-color: var(--green-dim); color: var(--green-dim); }
-  .btn-wa{ background: #25D366; color: #fff; }
-  .btn-wa:hover{ background: #22c15e; transform: translateY(-2px); }
+  .btn-wa{ background: var(--green); color: #fff; }
+  .btn-wa:hover{ background: var(--green-dim); transform: translateY(-2px); }
   .btn svg{ width: 18px; height: 18px; }
 
   [data-reveal]{
@@ -221,7 +282,7 @@
   .mobile-menu a:hover::after{ opacity: 1; transform: translateX(0); }
   .mobile-menu-foot{
     margin-top: var(--space-3); padding-top: var(--space-3);
-    border-top: 1px dashed var(--line-dark);
+    border-top: 1px solid var(--line-dark);
     display: flex; gap: var(--space-2);
   }
   .mobile-menu-foot .btn{ flex: 1; justify-content: center; padding: 0.72em 1em; font-size: 0.74rem; }
@@ -324,26 +385,47 @@
   /* ============ MESSAGE GUIDE ============ */
   .guide{ background: var(--paper); }
   .guide-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); align-items: start; }
-  .guide-list{ counter-reset: gitem; list-style: none; padding-left: 0; margin-left: 0; }
-  .guide-list li{
-    counter-increment: gitem;
-    position: relative;
-    padding-left: 2.6em;
-    margin-bottom: 1.1em;
-    font-size: 1.04rem;
+
+  /* --- Contact form --- */
+  .contact-form{ display: flex; flex-direction: column; gap: var(--space-3); }
+  .form-row{ display: flex; flex-direction: column; gap: 0.5em; }
+  .form-row label{
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--steel-dark);
+  }
+  .form-row input,
+  .form-row select,
+  .form-row textarea{
+    font-family: var(--font-body);
+    font-size: 1rem;
     color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius);
+    padding: 0.85em 1em;
+    transition: border-color .2s ease, box-shadow .2s ease;
+    width: 100%;
   }
-  .guide-list li strong{ display: block; margin-bottom: 0.15em; }
-  .guide-list li span{ color: var(--steel-dark); font-size: 0.9rem; }
-  .guide-list li::before{
-    content: counter(gitem);
-    position: absolute; left: 0; top: 0;
-    width: 1.8em; height: 1.8em;
-    border: 1px solid var(--green-dim);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-mono); font-size: 0.8rem; color: var(--green-dim);
+  .form-row input:focus,
+  .form-row select:focus,
+  .form-row textarea:focus{
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(2,144,72,0.15);
   }
+  .form-row textarea{ resize: vertical; min-height: 100px; font-family: var(--font-body); }
+  .form-row select{ cursor: pointer; }
+  .cf-status{
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    text-align: center;
+    min-height: 1.2em;
+    color: var(--green-dim);
+  }
+  .cf-status.error{ color: #b3261e; }
   .guide-visual{
     aspect-ratio: 4/3;
     border-radius: var(--radius);
@@ -370,6 +452,23 @@
     font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--steel); margin-top: 0.4em; border-top: 1px dashed var(--line); padding-top: 0.6em;
   }
+
+  /* ============ FIND US ============ */
+  .findus{ background: var(--paper); }
+  .findus-grid{
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--space-5);
+    align-items: center;
+  }
+  .findus-map{
+    aspect-ratio: 4/3;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line-dark);
+    box-shadow: 0 24px 48px rgba(16,22,29,0.14);
+  }
+  .findus-map iframe{ width: 100%; height: 100%; border: 0; display: block; }
 
   /* Social row */
   .social-row{ margin-top: var(--space-5); display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
@@ -421,6 +520,7 @@
     .guide-grid{ grid-template-columns: 1fr; }
     .guide-visual{ position: static; aspect-ratio: 16/9; }
     .coverage-row{ grid-template-columns: 1fr; }
+    .findus-grid{ grid-template-columns: 1fr; }
     section{ padding: var(--space-6) 0; }
   }
   @media (max-width: 560px){
@@ -574,18 +674,45 @@
     </div>
   </section>
 
-  <!-- ============ MESSAGE GUIDE ============ -->
+  <!-- ============ SEND A MESSAGE ============ -->
   <section class="guide">
     <div class="wrap guide-grid">
       <div data-reveal>
-        <span class="eyebrow light-eyebrow">Get A Faster Response</span>
-        <h2 style="font-size: clamp(1.9rem, 3.4vw, 2.6rem); text-transform: none; margin-top: var(--space-2); margin-bottom: var(--space-4);">What to include in your first message</h2>
-        <ol class="guide-list">
-          <li><strong>The service you need</strong><span>Bus hire, delivery, convoy, rental — whatever fits your job.</span></li>
-          <li><strong>Date and time</strong><span>Even a rough window helps us check vehicle availability fast.</span></li>
-          <li><strong>Pickup and destination</strong><span>Exact addresses aren't essential yet — area names are enough to start.</span></li>
-          <li><strong>Number of people or size of load</strong><span>Helps us match the right vehicle from the first reply.</span></li>
-        </ol>
+        <span class="eyebrow light-eyebrow">Send A Message</span>
+        <h2 style="font-size: clamp(1.9rem, 3.4vw, 2.6rem); text-transform: none; margin-top: var(--space-2); margin-bottom: var(--space-3);">Tell us what you need moved</h2>
+        <p style="color: var(--steel-dark); font-size: 1.02rem; max-width: 46ch; margin-bottom: var(--space-4);">Fill this in and we'll get back to you with availability and next steps.</p>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-row">
+            <label for="cf-name">Full Name</label>
+            <input type="text" id="cf-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="cf-phone">Phone Number</label>
+            <input type="tel" id="cf-phone" name="phone" required autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <label for="cf-service">Service Needed</label>
+            <select id="cf-service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Executive Bus Hire</option>
+              <option>Vehicle Purchase Assistance</option>
+              <option>Interstate Delivery</option>
+              <option>Convoy Services</option>
+              <option>Bus Rental</option>
+              <option>Executive Vehicle Lease</option>
+              <option>NYSC Travel</option>
+              <option>Car Rental</option>
+              <option>Not sure / General Enquiry</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="4" placeholder="Date, pickup/destination, number of people or size of load..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+          <p id="cf-status" class="cf-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
       <div class="guide-visual" data-reveal>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
@@ -628,6 +755,27 @@
     </div>
   </section>
 
+  <!-- ============ FIND US ============ -->
+  <section class="findus">
+    <div class="wrap findus-grid">
+      <div data-reveal>
+        <span class="eyebrow light-eyebrow">Find Us</span>
+        <h2 style="font-size: clamp(1.9rem, 3.4vw, 2.6rem); text-transform: none; margin-top: var(--space-2); margin-bottom: var(--space-3);">Based in Lagos, moving nationwide</h2>
+        <p style="color: var(--steel-dark); font-size: 1.02rem; max-width: 44ch; margin-bottom: var(--space-4);">Dispatch operates out of Lagos, with trips running across the city and interstate every day. Get directions or reach out on WhatsApp to confirm a pickup point near you.</p>
+        <a class="btn btn-outline on-light" href="https://www.google.com/maps/search/?api=1&query=D-General+Transport+Consult+Lagos+Nigeria" target="_blank" rel="noopener">Get Directions &rarr;</a>
+      </div>
+      <div class="findus-map" data-reveal>
+        <iframe
+          src="https://maps.google.com/maps?q=Lagos%2C%20Nigeria&z=11&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing Lagos, Nigeria"
+          aria-label="Map showing Lagos, Nigeria">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="wrap foot-row">
       <span>&copy; 2026 D-General Transport Consult &middot; BN 8873046</span>
@@ -663,6 +811,42 @@
     });
   }, { threshold: 0.15 });
   groupEls.forEach(el => groupIo.observe(el));
+
+  // Contact form: send the enquiry through to the booking line
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm){
+    const cfStatus = document.getElementById('cf-status');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('cf-name').value.trim();
+      const phone = document.getElementById('cf-phone').value.trim();
+      const service = document.getElementById('cf-service').value;
+      const message = document.getElementById('cf-message').value.trim();
+
+      if(!name || !phone || !service || !message){
+        cfStatus.textContent = 'Please fill in every field before sending.';
+        cfStatus.classList.add('error');
+        return;
+      }
+      cfStatus.classList.remove('error');
+      cfStatus.textContent = 'Opening your message...';
+
+      const lines = [
+        'Hello D-General, I\'d like to make an enquiry.',
+        'Name: ' + name,
+        'Phone: ' + phone,
+        'Service: ' + service,
+        'Message: ' + message
+      ];
+      const text = encodeURIComponent(lines.join('\n'));
+      const dest = 'https://wa.me/2347025610836?text=' + text;
+
+      setTimeout(() => {
+        window.location.href = dest;
+      }, 300);
+    });
+  }
 
   // Nav: firm up with a shadow once scrolled past the hero
   const siteHeader = document.querySelector('header');
