@@ -3,8 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.dgeneraltransportconsult.com/services.html">
+<meta name="theme-color" content="#10161D">
 <title>Services — D-General Transport Consult</title>
 <meta name="description" content="Executive bus hire, vehicle purchase assistance, interstate delivery, convoy services, bus rental and executive vehicle leasing. Book any service directly on WhatsApp.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Social sharing preview (Open Graph / Twitter) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="D-General Transport Consult">
+<meta property="og:title" content="Services — D-General Transport Consult">
+<meta property="og:description" content="Executive bus hire, vehicle purchase assistance, interstate delivery, convoy services, bus rental and executive vehicle leasing. Book any service directly on WhatsApp.">
+<meta property="og:image" content="https://www.dgeneraltransportconsult.com/og-image.jpg">
+<meta property="og:url" content="https://www.dgeneraltransportconsult.com/services.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services — D-General Transport Consult">
+<meta name="twitter:description" content="Executive bus hire, vehicle purchase assistance, interstate delivery, convoy services, bus rental and executive vehicle leasing. Book any service directly on WhatsApp.">
+<meta name="twitter:image" content="https://www.dgeneraltransportconsult.com/og-image.jpg">
+
+<!-- Structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "D-General Transport Consult",
+  "image": "https://www.dgeneraltransportconsult.com/logo.png",
+  "url": "https://www.dgeneraltransportconsult.com/",
+  "telephone": "+2347025610836",
+  "email": "dgeneraltransportcounsult@gmail.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lagos",
+    "addressCountry": "NG"
+  },
+  "areaServed": "Nigeria",
+  "founder": {
+    "@type": "Person",
+    "name": "Uroh Emmanuel"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -223,7 +283,7 @@
   .mobile-menu a:hover::after{ opacity: 1; transform: translateX(0); }
   .mobile-menu-foot{
     margin-top: var(--space-3); padding-top: var(--space-3);
-    border-top: 1px dashed var(--line-dark);
+    border-top: 1px solid var(--line-dark);
     display: flex; gap: var(--space-2);
   }
   .mobile-menu-foot .btn{ flex: 1; justify-content: center; }
@@ -239,7 +299,7 @@
   .svc-hero-media{ position: absolute; inset: 0; z-index: 0; }
   .svc-hero-media img{
     width: 100%; height: 100%; object-fit: cover;
-    filter: grayscale(20%) brightness(0.55);
+    filter: grayscale(15%) contrast(1.1) brightness(0.55);
   }
   .svc-hero::before{
     content:"";
@@ -316,7 +376,7 @@
     text-transform: uppercase;
     padding: 0.55em 1em;
     border: 1px solid var(--line-dark);
-    border-radius: 999px;
+    border-radius: 2px;
     color: var(--steel-dark);
     transition: border-color .2s ease, color .2s ease, background .2s ease;
     white-space: nowrap;
@@ -352,6 +412,7 @@
     overflow: hidden;
     background: var(--asphalt-2);
     border: 1px solid var(--line-dark);
+    box-shadow: 0 24px 48px rgba(16,22,29,0.14);
     position: relative;
   }
   .svc-photo-frame img{
@@ -389,15 +450,28 @@
     color: var(--steel);
   }
 
+  .svc-heading{ display: flex; align-items: flex-start; gap: var(--space-3); }
+  .svc-ghost-num{
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 0.8;
+    color: rgba(2,144,72,0.15);
+    flex-shrink: 0;
+    user-select: none;
+  }
   .svc-index{
     font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--green-dim);
+    font-size: 0.72rem;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-dim);
+    display: block;
+    margin-bottom: 0.4em;
   }
   .svc-detail h2{
     font-size: clamp(1.9rem, 3.4vw, 2.6rem);
-    margin-top: var(--space-2);
+    margin-top: 0;
     text-transform: none;
     font-weight: 800;
   }
@@ -421,7 +495,7 @@
     text-transform: uppercase;
     color: var(--steel-dark);
     margin-bottom: 0.9em;
-    border-bottom: 1px dashed var(--line-dark);
+    border-bottom: 1px solid var(--line-dark);
     padding-bottom: 0.6em;
   }
   .svc-included li{
@@ -481,10 +555,10 @@
     align-items: center;
   }
   .svc-cta .btn-wa{
-    background: #25D366;
+    background: var(--green);
     color: #fff;
   }
-  .svc-cta .btn-wa:hover{ background: #22c15e; }
+  .svc-cta .btn-wa:hover{ background: var(--green-dim); }
   .svc-note{
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -563,6 +637,7 @@
   @media (max-width: 380px){
     .svc-hero h1{ font-size: clamp(2rem, 8vw, 2.8rem); }
     .svc-detail h2{ font-size: clamp(1.6rem, 6.5vw, 2rem); }
+    .svc-ghost-num{ font-size: clamp(2rem, 10vw, 2.6rem); }
     .svc-cta{ flex-direction: column; align-items: stretch; }
     .svc-cta .btn{ justify-content: center; }
     .svc-cta .svc-note{ text-align: center; }
@@ -689,8 +764,13 @@
         <figcaption class="svc-photo-cap">Executive coaster, ready for dispatch</figcaption>
       </figure>
       <div>
-        <span class="svc-index">01 / 08</span>
-        <h2>Executive Bus Hire</h2>
+        <div class="svc-heading">
+          <span class="svc-ghost-num">01</span>
+          <div>
+            <span class="svc-index">Service 01 of 08</span>
+            <h2>Executive Bus Hire</h2>
+          </div>
+        </div>
         <p class="svc-overview">Premium, air-conditioned coasters for corporate events, church programs, school trips, weddings and other group outings — a clean cabin, a professional driver, and a vehicle that matches the occasion.</p>
 
         <div class="svc-columns">
@@ -733,8 +813,13 @@
         <figcaption class="svc-photo-cap">On-site inspection before purchase</figcaption>
       </figure>
       <div>
-        <span class="svc-index">02 / 08</span>
-        <h2>Vehicle Purchase Assistance</h2>
+        <div class="svc-heading">
+          <span class="svc-ghost-num">02</span>
+          <div>
+            <span class="svc-index">Service 02 of 08</span>
+            <h2>Vehicle Purchase Assistance</h2>
+          </div>
+        </div>
         <p class="svc-overview">Looking to buy a commercial or executive vehicle? We source, inspect and negotiate on your behalf, so you're not navigating the market — or the risk of a bad deal — alone.</p>
 
         <div class="svc-columns">
@@ -777,8 +862,13 @@
         <figcaption class="svc-photo-cap">Loaded and dispatched for interstate delivery</figcaption>
       </figure>
       <div>
-        <span class="svc-index">03 / 08</span>
-        <h2>Interstate Delivery</h2>
+        <div class="svc-heading">
+          <span class="svc-ghost-num">03</span>
+          <div>
+            <span class="svc-index">Service 03 of 08</span>
+            <h2>Interstate Delivery</h2>
+          </div>
+        </div>
         <p class="svc-overview">Reliable movement of goods and packages between Lagos and major Nigerian states — with a named driver and vehicle you can reach at every stage of the trip.</p>
 
         <div class="svc-columns">
@@ -821,8 +911,13 @@
         <figcaption class="svc-photo-cap">Convoy formation, en route</figcaption>
       </figure>
       <div>
-        <span class="svc-index">04 / 08</span>
-        <h2>Convoy Services</h2>
+        <div class="svc-heading">
+          <span class="svc-ghost-num">04</span>
+          <div>
+            <span class="svc-index">Service 04 of 08</span>
+            <h2>Convoy Services</h2>
+          </div>
+        </div>
         <p class="svc-overview">Coordinated multi-vehicle movement for executives, dignitaries and organizational travel — timed and sequenced so every vehicle in the convoy moves as one unit.</p>
 
         <div class="svc-columns">
@@ -865,8 +960,13 @@
         <figcaption class="svc-photo-cap">Available on flexible rental terms</figcaption>
       </figure>
       <div>
-        <span class="svc-index">05 / 08</span>
-        <h2>Bus Rental</h2>
+        <div class="svc-heading">
+          <span class="svc-ghost-num">05</span>
+          <div>
+            <span class="svc-index">Service 05 of 08</span>
+            <h2>Bus Rental</h2>
+          </div>
+        </div>
         <p class="svc-overview">Flexible rental plans for businesses, schools and organizations that need a bus on standby — daily, weekly or monthly, without committing to ownership.</p>
 
         <div class="svc-columns">
@@ -909,8 +1009,13 @@
         <figcaption class="svc-photo-cap">Leased executive vehicle, on assignment</figcaption>
       </figure>
       <div>
-        <span class="svc-index">06 / 08</span>
-        <h2>Executive Vehicle Lease</h2>
+        <div class="svc-heading">
+          <span class="svc-ghost-num">06</span>
+          <div>
+            <span class="svc-index">Service 06 of 08</span>
+            <h2>Executive Vehicle Lease</h2>
+          </div>
+        </div>
         <p class="svc-overview">Long-term leasing for businesses, NGOs and government agencies that need dependable executive transport without the overheads of ownership.</p>
 
         <div class="svc-columns">
@@ -953,8 +1058,13 @@
         <figcaption class="svc-photo-cap">Camp-bound and ready for departure</figcaption>
       </figure>
       <div>
-        <span class="svc-index">07 / 08</span>
-        <h2>NYSC Travel</h2>
+        <div class="svc-heading">
+          <span class="svc-ghost-num">07</span>
+          <div>
+            <span class="svc-index">Service 07 of 08</span>
+            <h2>NYSC Travel</h2>
+          </div>
+        </div>
         <p class="svc-overview">Coordinated transport for corps members and camp officials — from home to orientation camp, camp to PPA after passing out, or group travel arranged through SAED groups, CDS units and state coordinators.</p>
 
         <div class="svc-columns">
@@ -997,8 +1107,13 @@
         <figcaption class="svc-photo-cap">Sedan, ready for a same-day pickup</figcaption>
       </figure>
       <div>
-        <span class="svc-index">08 / 08</span>
-        <h2>Car Rental</h2>
+        <div class="svc-heading">
+          <span class="svc-ghost-num">08</span>
+          <div>
+            <span class="svc-index">Service 08 of 08</span>
+            <h2>Car Rental</h2>
+          </div>
+        </div>
         <p class="svc-overview">Short-term car rental for individuals, executives and small groups — a sedan or SUV with a driver, for airport runs, city errands or everyday use, without the commitment of a lease.</p>
 
         <div class="svc-columns">
