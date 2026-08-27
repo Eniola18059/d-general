@@ -746,25 +746,26 @@
   .service-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-3);
+    gap: var(--space-4) var(--space-3);
   }
   .service{
-    position: relative;
-    aspect-ratio: 3/4;
-    border-radius: var(--radius);
-    overflow: hidden;
-    background: var(--asphalt-2);
     display: block;
     cursor: pointer;
-    transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s ease;
   }
-  .service:hover{ transform: translateY(-5px); box-shadow: 0 20px 40px rgba(16,22,29,0.25); }
   .services-more{
     margin-top: var(--space-5);
     display: flex;
     justify-content: center;
   }
-  .service-photo{ position: absolute; inset: 0; }
+  .service-photo{
+    position: relative;
+    aspect-ratio: 3/4;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--asphalt-2);
+    transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s ease;
+  }
+  .service:hover .service-photo{ transform: translateY(-5px); box-shadow: 0 20px 40px rgba(16,22,29,0.25); }
   .service-photo img{
     width: 100%; height: 100%; object-fit: cover; display: block;
     filter: grayscale(15%) contrast(1.05);
@@ -783,35 +784,27 @@
     font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em;
     text-transform: uppercase; color: var(--steel);
   }
-  .service-overlay{
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: var(--space-4);
-    background: linear-gradient(180deg, transparent 0%, transparent 38%, rgba(16,22,29,0.7) 76%, rgba(16,22,29,0.94) 100%);
+  .service-caption{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
   }
   .service h3{
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     text-transform: none;
     font-family: var(--font-body);
     font-weight: 700;
     letter-spacing: 0;
-    color: var(--paper);
-    margin-bottom: 0.4em;
-  }
-  .service p{
-    font-size: 0.88rem;
-    color: rgba(236,238,239,0.82);
-    line-height: 1.4;
+    color: var(--ink);
   }
   .service-arrow{
     display: inline-flex;
     align-items: center;
-    gap: 0.4em;
-    margin-top: 0.8em;
+    flex-shrink: 0;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    font-size: 0.7rem;
     color: var(--green);
     opacity: 0;
     transform: translateX(-6px);
@@ -1127,6 +1120,7 @@
     .brand-logo{ height: 38px; }
     .brand-fallback b{ font-size: 1.25rem; }
     .hero{ padding: calc(var(--space-6) + 1.6rem) 0 var(--space-4); }
+    .hero-media img{ object-fit: contain; object-position: top center; }
     .hero-tag{ font-size: 0.62rem; padding: 0.45em 0.8em; }
     .hero-sub{ font-size: 1.04rem; }
     .service-grid{ grid-template-columns: 1fr; }
@@ -1214,10 +1208,10 @@
   .why-item, .contact-card, .stub{
     transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease, border-color .35s ease, background .3s ease;
   }
-  .service:hover{
-    z-index: 2;
+  .service:hover .service-photo{
     box-shadow: 0 28px 56px rgba(16,22,29,0.35), 0 0 32px rgba(2,144,72,0.18);
   }
+  .service:hover{ z-index: 2; }
   .service-glare{
     position: absolute; inset: 0;
     z-index: 3;
@@ -1227,7 +1221,7 @@
     background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,0.4), transparent 45%);
     mix-blend-mode: overlay;
   }
-  .service:hover .service-glare{ opacity: 1; }
+  .service-photo:hover .service-glare{ opacity: 1; }
 
   .why-item{ border-radius: var(--radius); }
   .why-item:hover{ transform: translateY(-4px); }
@@ -1484,91 +1478,83 @@
 
       <div class="service-grid" data-reveal-group>
         <a class="service" href="services.html#executive-bus-hire">
-          <span class="service-index">01</span>
           <div class="service-photo" data-pending-label="service-bus-hire.jpg">
+            <span class="service-index">01</span>
             <img src="service-bus-hire.jpg" alt="Executive Bus Hire" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <div class="service-overlay">
+          <div class="service-caption">
             <h3>Executive Bus Hire</h3>
-            <p>Premium, air-conditioned coasters for corporate events, church outings, school trips and special occasions.</p>
-            <span class="service-arrow">View Service &rarr;</span>
+            <span class="service-arrow">&rarr;</span>
           </div>
         </a>
         <a class="service" href="services.html#vehicle-purchase-assistance">
-          <span class="service-index">02</span>
           <div class="service-photo" data-pending-label="service-vehicle-purchase.jpg">
+            <span class="service-index">02</span>
             <img src="service-vehicle-purchase.jpg" alt="Vehicle Purchase Assistance" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <div class="service-overlay">
+          <div class="service-caption">
             <h3>Vehicle Purchase Assistance</h3>
-            <p>Sourcing, vetting and acquiring the right commercial or executive vehicle, at the right price.</p>
-            <span class="service-arrow">View Service &rarr;</span>
+            <span class="service-arrow">&rarr;</span>
           </div>
         </a>
         <a class="service" href="services.html#interstate-delivery">
-          <span class="service-index">03</span>
           <div class="service-photo" data-pending-label="service-interstate-delivery.jpg">
+            <span class="service-index">03</span>
             <img src="service-interstate-delivery.jpg" alt="Interstate Delivery" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <div class="service-overlay">
+          <div class="service-caption">
             <h3>Interstate Delivery</h3>
-            <p>Fast, accountable delivery of goods and packages across Nigerian states.</p>
-            <span class="service-arrow">View Service &rarr;</span>
+            <span class="service-arrow">&rarr;</span>
           </div>
         </a>
         <a class="service" href="services.html#convoy-services">
-          <span class="service-index">04</span>
           <div class="service-photo" data-pending-label="service-convoy.jpg">
+            <span class="service-index">04</span>
             <img src="service-convoy.jpg" alt="Convoy Services" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <div class="service-overlay">
+          <div class="service-caption">
             <h3>Convoy Services</h3>
-            <p>Coordinated multi-vehicle movement for dignitaries, executives and organizations.</p>
-            <span class="service-arrow">View Service &rarr;</span>
+            <span class="service-arrow">&rarr;</span>
           </div>
         </a>
         <a class="service" href="services.html#bus-rental">
-          <span class="service-index">05</span>
           <div class="service-photo" data-pending-label="service-bus-rental.jpg">
+            <span class="service-index">05</span>
             <img src="service-bus-rental.jpg" alt="Bus Rental" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <div class="service-overlay">
+          <div class="service-caption">
             <h3>Bus Rental</h3>
-            <p>Daily, weekly or monthly rental plans, matched to your schedule and capacity needs.</p>
-            <span class="service-arrow">View Service &rarr;</span>
+            <span class="service-arrow">&rarr;</span>
           </div>
         </a>
         <a class="service" href="services.html#executive-vehicle-lease">
-          <span class="service-index">06</span>
           <div class="service-photo" data-pending-label="service-vehicle-lease.jpg">
+            <span class="service-index">06</span>
             <img src="service-vehicle-lease.jpg" alt="Executive Vehicle Lease" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <div class="service-overlay">
+          <div class="service-caption">
             <h3>Executive Vehicle Lease</h3>
-            <p>Long-term leasing for businesses, NGOs and government agencies — prestige without ownership costs.</p>
-            <span class="service-arrow">View Service &rarr;</span>
+            <span class="service-arrow">&rarr;</span>
           </div>
         </a>
         <a class="service" href="services.html#nysc-travel">
-          <span class="service-index">07</span>
           <div class="service-photo" data-pending-label="service-nysc-travel.jpg">
+            <span class="service-index">07</span>
             <img src="service-nysc-travel.jpg" alt="NYSC Travel" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <div class="service-overlay">
+          <div class="service-caption">
             <h3>NYSC Travel</h3>
-            <p>Camp drop-off, PPA relocation and group travel for corps members — coordinated door to door.</p>
-            <span class="service-arrow">View Service &rarr;</span>
+            <span class="service-arrow">&rarr;</span>
           </div>
         </a>
         <a class="service" href="services.html#car-rental">
-          <span class="service-index">08</span>
           <div class="service-photo" data-pending-label="service-car-rental.jpg">
+            <span class="service-index">08</span>
             <img src="service-car-rental.jpg" alt="Car Rental" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <div class="service-overlay">
+          <div class="service-caption">
             <h3>Car Rental</h3>
-            <p>Sedans and SUVs with a driver, for airport runs, errands or everyday use — no lease commitment.</p>
-            <span class="service-arrow">View Service &rarr;</span>
+            <span class="service-arrow">&rarr;</span>
           </div>
         </a>
       </div>
@@ -2077,7 +2063,7 @@
 
   // 3D tilt on service photo tiles (desktop pointer only) + holographic glare sheen
   if(hasHover && !reduceMotion){
-    document.querySelectorAll('.service').forEach((tile) => {
+    document.querySelectorAll('.service-photo').forEach((tile) => {
       tile.style.transformStyle = 'preserve-3d';
       tile.style.transition = 'transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .4s ease';
 
