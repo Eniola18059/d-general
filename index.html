@@ -3,8 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.dgeneraltransportconsult.com/">
+<meta name="theme-color" content="#10161D">
 <title>D-General Transport Consult — Executive Transport &amp; Logistics, Nigeria</title>
 <meta name="description" content="Executive bus hire, vehicle leasing, convoy coordination and interstate delivery across Nigeria. 3,500+ services delivered.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Social sharing preview (Open Graph / Twitter) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="D-General Transport Consult">
+<meta property="og:title" content="D-General Transport Consult — Executive Transport &amp; Logistics, Nigeria">
+<meta property="og:description" content="Executive bus hire, vehicle leasing, convoy coordination and interstate delivery across Nigeria. 3,500+ services delivered.">
+<meta property="og:image" content="https://www.dgeneraltransportconsult.com/og-image.jpg">
+<meta property="og:url" content="https://www.dgeneraltransportconsult.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="D-General Transport Consult — Executive Transport &amp; Logistics, Nigeria">
+<meta name="twitter:description" content="Executive bus hire, vehicle leasing, convoy coordination and interstate delivery across Nigeria. 3,500+ services delivered.">
+<meta name="twitter:image" content="https://www.dgeneraltransportconsult.com/og-image.jpg">
+
+<!-- Structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "D-General Transport Consult",
+  "image": "https://www.dgeneraltransportconsult.com/logo.png",
+  "url": "https://www.dgeneraltransportconsult.com/",
+  "telephone": "+2347025610836",
+  "email": "dgeneraltransportcounsult@gmail.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lagos",
+    "addressCountry": "NG"
+  },
+  "areaServed": "Nigeria",
+  "founder": {
+    "@type": "Person",
+    "name": "Uroh Emmanuel"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -321,7 +381,7 @@
   .mobile-menu-foot{
     margin-top: var(--space-3);
     padding-top: var(--space-3);
-    border-top: 1px dashed var(--line-dark);
+    border-top: 1px solid var(--line-dark);
     display: flex; gap: var(--space-2);
   }
   .mobile-menu-foot .btn{
@@ -341,7 +401,7 @@
   .hero-media{ position: absolute; inset: 0; z-index: 0; }
   .hero-media img{
     width: 100%; height: 100%; object-fit: cover;
-    filter: grayscale(20%) brightness(0.5);
+    filter: grayscale(15%) contrast(1.1) brightness(0.5);
   }
   .hero::before{
     content:"";
@@ -456,6 +516,7 @@
     display:flex; flex-wrap:wrap; gap: var(--space-3);
     margin-top: var(--space-5);
   }
+  .magnetic-btn{ will-change: transform; }
 
   /* ticket / waybill stat stubs */
   .stats{
@@ -685,74 +746,89 @@
   .service-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--line-dark);
-    border: 1px solid var(--line-dark);
-    border-radius: var(--radius);
-    overflow: hidden;
+    gap: var(--space-3);
   }
   .service{
-    background: var(--paper);
-    padding: var(--space-4);
-    transition: background .3s ease;
     position: relative;
-    display: block;
-    cursor: pointer;
-  }
-  .service:hover{ background: var(--paper-2); }
-  .services-more{
-    margin-top: var(--space-4);
-    display: flex;
-    justify-content: center;
-  }
-  .service-thumb{
-    aspect-ratio: 16/10;
+    aspect-ratio: 3/4;
     border-radius: var(--radius);
     overflow: hidden;
     background: var(--asphalt-2);
-    border: 1px solid var(--line-dark);
-    margin-bottom: var(--space-3);
-    position: relative;
+    display: block;
+    cursor: pointer;
+    transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s ease;
   }
-  .service-thumb img{
+  .service:hover{ transform: translateY(-5px); box-shadow: 0 20px 40px rgba(16,22,29,0.25); }
+  .services-more{
+    margin-top: var(--space-5);
+    display: flex;
+    justify-content: center;
+  }
+  .service-photo{ position: absolute; inset: 0; }
+  .service-photo img{
     width: 100%; height: 100%; object-fit: cover; display: block;
-    filter: grayscale(10%) contrast(1.03);
-    transition: transform .6s cubic-bezier(.2,.7,.3,1);
+    filter: grayscale(15%) contrast(1.05);
+    transition: transform .8s cubic-bezier(.2,.7,.3,1);
   }
-  .service:hover .service-thumb img{ transform: scale(1.06); }
-  .service-thumb.img-pending{
-    background: repeating-linear-gradient(135deg, rgba(16,22,29,0.06) 0 2px, transparent 2px 14px), var(--paper-2);
+  .service:hover .service-photo img{ transform: scale(1.09); }
+  .service-photo.img-pending{
+    background: repeating-linear-gradient(135deg, rgba(236,238,239,0.06) 0 2px, transparent 2px 14px), var(--asphalt-2);
   }
-  .service-thumb.img-pending img{ visibility: hidden; }
-  .service-thumb.img-pending::after{
+  .service-photo.img-pending img{ visibility: hidden; }
+  .service-photo.img-pending::after{
     content: attr(data-pending-label);
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
     text-align: center; padding: 1em;
-    font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.06em;
-    text-transform: uppercase; color: var(--steel-dark);
+    font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--steel);
+  }
+  .service-overlay{
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: var(--space-4);
+    background: linear-gradient(180deg, transparent 0%, transparent 38%, rgba(16,22,29,0.7) 76%, rgba(16,22,29,0.94) 100%);
   }
   .service h3{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-transform: none;
     font-family: var(--font-body);
     font-weight: 700;
     letter-spacing: 0;
-    margin-bottom: 0.5em;
+    color: var(--paper);
+    margin-bottom: 0.4em;
   }
   .service p{
-    font-size: 0.98rem;
-    color: var(--steel-dark);
+    font-size: 0.88rem;
+    color: rgba(236,238,239,0.82);
+    line-height: 1.4;
   }
-  .service-index{
-    position: absolute; top: var(--space-4); right: var(--space-4);
+  .service-arrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    margin-top: 0.8em;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--green-dim);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--green);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .service:hover .service-arrow{ opacity: 1; transform: translateX(0); }
+  .service-index{
+    position: absolute; top: var(--space-3); left: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    color: var(--paper);
     z-index: 2;
-    background: var(--paper);
-    padding: 0.2em 0.5em;
-    border-radius: 999px;
+    background: rgba(16,22,29,0.5);
+    backdrop-filter: blur(6px);
+    padding: 0.35em 0.65em;
+    border-radius: 2px;
   }
 
   /* ============ WHY US ============ */
@@ -763,7 +839,7 @@
   }
   .why-item{
     padding: 0 var(--space-3);
-    border-left: 1px dashed var(--line-dark);
+    border-left: 1px solid var(--line-dark);
   }
   .why-item:first-child{ border-left: none; padding-left: 0; }
   .why-icon{ width: 30px; height:30px; color: var(--green-dim); margin-bottom: var(--space-2); }
@@ -818,7 +894,7 @@
     color: var(--paper);
     padding: 0.65em 1.15em;
     border: 1px solid var(--line);
-    border-radius: 999px;
+    border-radius: 2px;
     transition: border-color .3s ease, color .3s ease, background .3s ease, transform .3s ease;
   }
   .moved-chip:hover{ border-color: var(--green); color: var(--green); background: rgba(2,144,72,0.08); transform: translateY(-2px); }
@@ -879,7 +955,7 @@
     text-transform: uppercase;
     border: 1px solid var(--line-dark);
     padding: 0.5em 0.8em;
-    border-radius: 999px;
+    border-radius: 2px;
     color: var(--steel-dark);
   }
 
@@ -1054,6 +1130,7 @@
     .hero-tag{ font-size: 0.62rem; padding: 0.45em 0.8em; }
     .hero-sub{ font-size: 1.04rem; }
     .service-grid{ grid-template-columns: 1fr; }
+    .service{ aspect-ratio: 4/3; }
     .why-row{ grid-template-columns: 1fr; }
     .hero-actions{ flex-direction: column; align-items: stretch; }
     .hero-actions .btn{ justify-content:center; }
@@ -1067,7 +1144,6 @@
     .contact-card strong{ font-size: 0.94rem; }
   }
   @media (max-width: 380px){
-    .service-index{ display:none; }
     .contact-card strong{ font-size: 0.8rem; }
   }
 
@@ -1098,6 +1174,9 @@
     animation: wordUp .7s cubic-bezier(.2,.7,.3,1) forwards;
   }
   @keyframes wordUp{ to{ opacity: 1; transform: translateY(0); filter: blur(0); } }
+  .scramble-target.scrambling{
+    text-shadow: 0 0 18px rgba(2,144,72,0.85), 0 0 4px rgba(2,144,72,0.6);
+  }
 
   .scroll-cue{
     position: relative;
@@ -1132,16 +1211,23 @@
   [data-reveal-group].in-view > *:nth-child(6){ transition-delay: .34s; }
 
   /* --- Cards: lift + glow + icon motion on hover --- */
-  .service, .why-item, .contact-card, .stub{
+  .why-item, .contact-card, .stub{
     transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease, border-color .35s ease, background .3s ease;
   }
   .service:hover{
-    transform: translateY(-6px);
-    box-shadow: 0 14px 28px rgba(16,22,29,0.12);
     z-index: 2;
+    box-shadow: 0 28px 56px rgba(16,22,29,0.35), 0 0 32px rgba(2,144,72,0.18);
   }
-  .service-index{ transition: color .3s ease, transform .3s ease; }
-  .service:hover .service-index{ color: var(--green); transform: scale(1.1); }
+  .service-glare{
+    position: absolute; inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s ease;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,0.4), transparent 45%);
+    mix-blend-mode: overlay;
+  }
+  .service:hover .service-glare{ opacity: 1; }
 
   .why-item{ border-radius: var(--radius); }
   .why-item:hover{ transform: translateY(-4px); }
@@ -1249,7 +1335,7 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="heroSection">
     <div class="hero-media" aria-hidden="true">
-      <img src="home-hero.jpg" alt="" loading="eager" onerror="this.style.display='none'">
+      <img src="home-banner.jpg" alt="" loading="eager" onerror="this.style.display='none'">
     </div>
     <div class="wrap hero-inner">
       <span class="hero-tag">Lagos &middot; Nationwide &middot; BN 8873046</span>
@@ -1257,7 +1343,7 @@
       <h1>
         <span class="word" style="animation-delay:.55s">Book</span> <span class="word" style="animation-delay:.63s">it</span> <span class="word" style="animation-delay:.71s">once.</span><br>
         <span class="word" style="animation-delay:.83s">We</span> <span class="word" style="animation-delay:.91s">handle</span><br>
-        <em><span class="word" style="animation-delay:1.05s">every</span> <span class="word" style="animation-delay:1.15s">mile.</span></em>
+        <em><span class="word scramble-target" data-final="every" style="animation-delay:1.05s">every</span> <span class="word scramble-target" data-final="mile." style="animation-delay:1.15s">mile.</span></em>
       </h1>
       <p class="hero-sub">One provider for executive transport and logistics — bus hire, fleet leasing, convoy coordination and interstate delivery — so you're not juggling vendors for every job.</p>
 
@@ -1399,67 +1485,91 @@
       <div class="service-grid" data-reveal-group>
         <a class="service" href="services.html#executive-bus-hire">
           <span class="service-index">01</span>
-          <div class="service-thumb" data-pending-label="service-bus-hire.jpg">
-            <img src="service-bus-hire.jpg" alt="Executive Bus Hire" loading="lazy" onerror="this.closest('.service-thumb').classList.add('img-pending')">
+          <div class="service-photo" data-pending-label="service-bus-hire.jpg">
+            <img src="service-bus-hire.jpg" alt="Executive Bus Hire" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <h3>Executive Bus Hire</h3>
-          <p>Premium, air-conditioned coasters for corporate events, church outings, school trips and special occasions.</p>
+          <div class="service-overlay">
+            <h3>Executive Bus Hire</h3>
+            <p>Premium, air-conditioned coasters for corporate events, church outings, school trips and special occasions.</p>
+            <span class="service-arrow">View Service &rarr;</span>
+          </div>
         </a>
         <a class="service" href="services.html#vehicle-purchase-assistance">
           <span class="service-index">02</span>
-          <div class="service-thumb" data-pending-label="service-vehicle-purchase.jpg">
-            <img src="service-vehicle-purchase.jpg" alt="Vehicle Purchase Assistance" loading="lazy" onerror="this.closest('.service-thumb').classList.add('img-pending')">
+          <div class="service-photo" data-pending-label="service-vehicle-purchase.jpg">
+            <img src="service-vehicle-purchase.jpg" alt="Vehicle Purchase Assistance" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <h3>Vehicle Purchase Assistance</h3>
-          <p>Sourcing, vetting and acquiring the right commercial or executive vehicle, at the right price.</p>
+          <div class="service-overlay">
+            <h3>Vehicle Purchase Assistance</h3>
+            <p>Sourcing, vetting and acquiring the right commercial or executive vehicle, at the right price.</p>
+            <span class="service-arrow">View Service &rarr;</span>
+          </div>
         </a>
         <a class="service" href="services.html#interstate-delivery">
           <span class="service-index">03</span>
-          <div class="service-thumb" data-pending-label="service-interstate-delivery.jpg">
-            <img src="service-interstate-delivery.jpg" alt="Interstate Delivery" loading="lazy" onerror="this.closest('.service-thumb').classList.add('img-pending')">
+          <div class="service-photo" data-pending-label="service-interstate-delivery.jpg">
+            <img src="service-interstate-delivery.jpg" alt="Interstate Delivery" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <h3>Interstate Delivery</h3>
-          <p>Fast, accountable delivery of goods and packages across Nigerian states.</p>
+          <div class="service-overlay">
+            <h3>Interstate Delivery</h3>
+            <p>Fast, accountable delivery of goods and packages across Nigerian states.</p>
+            <span class="service-arrow">View Service &rarr;</span>
+          </div>
         </a>
         <a class="service" href="services.html#convoy-services">
           <span class="service-index">04</span>
-          <div class="service-thumb" data-pending-label="service-convoy.jpg">
-            <img src="service-convoy.jpg" alt="Convoy Services" loading="lazy" onerror="this.closest('.service-thumb').classList.add('img-pending')">
+          <div class="service-photo" data-pending-label="service-convoy.jpg">
+            <img src="service-convoy.jpg" alt="Convoy Services" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <h3>Convoy Services</h3>
-          <p>Coordinated multi-vehicle movement for dignitaries, executives and organizations.</p>
+          <div class="service-overlay">
+            <h3>Convoy Services</h3>
+            <p>Coordinated multi-vehicle movement for dignitaries, executives and organizations.</p>
+            <span class="service-arrow">View Service &rarr;</span>
+          </div>
         </a>
         <a class="service" href="services.html#bus-rental">
           <span class="service-index">05</span>
-          <div class="service-thumb" data-pending-label="service-bus-rental.jpg">
-            <img src="service-bus-rental.jpg" alt="Bus Rental" loading="lazy" onerror="this.closest('.service-thumb').classList.add('img-pending')">
+          <div class="service-photo" data-pending-label="service-bus-rental.jpg">
+            <img src="service-bus-rental.jpg" alt="Bus Rental" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <h3>Bus Rental</h3>
-          <p>Daily, weekly or monthly rental plans, matched to your schedule and capacity needs.</p>
+          <div class="service-overlay">
+            <h3>Bus Rental</h3>
+            <p>Daily, weekly or monthly rental plans, matched to your schedule and capacity needs.</p>
+            <span class="service-arrow">View Service &rarr;</span>
+          </div>
         </a>
         <a class="service" href="services.html#executive-vehicle-lease">
           <span class="service-index">06</span>
-          <div class="service-thumb" data-pending-label="service-vehicle-lease.jpg">
-            <img src="service-vehicle-lease.jpg" alt="Executive Vehicle Lease" loading="lazy" onerror="this.closest('.service-thumb').classList.add('img-pending')">
+          <div class="service-photo" data-pending-label="service-vehicle-lease.jpg">
+            <img src="service-vehicle-lease.jpg" alt="Executive Vehicle Lease" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <h3>Executive Vehicle Lease</h3>
-          <p>Long-term leasing for businesses, NGOs and government agencies — prestige without ownership costs.</p>
+          <div class="service-overlay">
+            <h3>Executive Vehicle Lease</h3>
+            <p>Long-term leasing for businesses, NGOs and government agencies — prestige without ownership costs.</p>
+            <span class="service-arrow">View Service &rarr;</span>
+          </div>
         </a>
         <a class="service" href="services.html#nysc-travel">
           <span class="service-index">07</span>
-          <div class="service-thumb" data-pending-label="service-nysc-travel.jpg">
-            <img src="service-nysc-travel.jpg" alt="NYSC Travel" loading="lazy" onerror="this.closest('.service-thumb').classList.add('img-pending')">
+          <div class="service-photo" data-pending-label="service-nysc-travel.jpg">
+            <img src="service-nysc-travel.jpg" alt="NYSC Travel" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <h3>NYSC Travel</h3>
-          <p>Camp drop-off, PPA relocation and group travel for corps members — coordinated door to door.</p>
+          <div class="service-overlay">
+            <h3>NYSC Travel</h3>
+            <p>Camp drop-off, PPA relocation and group travel for corps members — coordinated door to door.</p>
+            <span class="service-arrow">View Service &rarr;</span>
+          </div>
         </a>
         <a class="service" href="services.html#car-rental">
           <span class="service-index">08</span>
-          <div class="service-thumb" data-pending-label="service-car-rental.jpg">
-            <img src="service-car-rental.jpg" alt="Car Rental" loading="lazy" onerror="this.closest('.service-thumb').classList.add('img-pending')">
+          <div class="service-photo" data-pending-label="service-car-rental.jpg">
+            <img src="service-car-rental.jpg" alt="Car Rental" loading="lazy" onerror="this.closest('.service-photo').classList.add('img-pending')">
           </div>
-          <h3>Car Rental</h3>
-          <p>Sedans and SUVs with a driver, for airport runs, errands or everyday use — no lease commitment.</p>
+          <div class="service-overlay">
+            <h3>Car Rental</h3>
+            <p>Sedans and SUVs with a driver, for airport runs, errands or everyday use — no lease commitment.</p>
+            <span class="service-arrow">View Service &rarr;</span>
+          </div>
         </a>
       </div>
 
@@ -1907,6 +2017,90 @@
 
   // Scroll reveal
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasHover = window.matchMedia('(hover: hover)').matches;
+
+  // Scramble/decode text effect on the emphasized headline words
+  if(!reduceMotion){
+    const scrambleEls = document.querySelectorAll('.scramble-target');
+    const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&*+-/';
+    scrambleEls.forEach((el) => {
+      const final = el.getAttribute('data-final');
+      const delayMatch = el.getAttribute('style').match(/animation-delay:([\d.]+)s/);
+      const startDelay = delayMatch ? parseFloat(delayMatch[1]) * 1000 : 0;
+      // give each character its own randomized lock-in point for a chaotic glitch feel
+      const lockPoints = final.split('').map((ch, i) => {
+        if(ch === ' ' || ch === '.') return 0;
+        return (i / final.length) * 0.65 + Math.random() * 0.35;
+      });
+      setTimeout(() => {
+        el.classList.add('scrambling');
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now){
+          const p = Math.min((now - start) / duration, 1);
+          let out = '';
+          for(let i = 0; i < final.length; i++){
+            const ch = final[i];
+            if(ch === ' ' || ch === '.' || p >= lockPoints[i]){
+              out += ch;
+            } else {
+              out += scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+            }
+          }
+          el.textContent = out;
+          if(p < 1) requestAnimationFrame(tick);
+          else {
+            el.textContent = final;
+            el.classList.remove('scrambling');
+          }
+        }
+        requestAnimationFrame(tick);
+      }, startDelay);
+    });
+  }
+
+  // Magnetic hover buttons (desktop pointer only)
+  if(hasHover && !reduceMotion){
+    document.querySelectorAll('.hero-actions .btn').forEach((btn) => {
+      btn.classList.add('magnetic-btn');
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const dx = (e.clientX - r.left - r.width / 2) * 0.45;
+        const dy = (e.clientY - r.top - r.height / 2) * 0.55;
+        btn.style.transform = `translate(${dx}px, ${dy - 2}px) scale(1.05)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  // 3D tilt on service photo tiles (desktop pointer only) + holographic glare sheen
+  if(hasHover && !reduceMotion){
+    document.querySelectorAll('.service').forEach((tile) => {
+      tile.style.transformStyle = 'preserve-3d';
+      tile.style.transition = 'transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .4s ease';
+
+      const glare = document.createElement('div');
+      glare.className = 'service-glare';
+      tile.appendChild(glare);
+
+      tile.addEventListener('mousemove', (e) => {
+        const r = tile.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        const rotateX = (-py * 18).toFixed(2);
+        const rotateY = (px * 20).toFixed(2);
+        tile.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+        tile.style.setProperty('--gx', ((px + 0.5) * 100) + '%');
+        tile.style.setProperty('--gy', ((py + 0.5) * 100) + '%');
+      });
+      tile.addEventListener('mouseleave', () => {
+        tile.style.transform = '';
+      });
+    });
+  }
+
   const revealEls = document.querySelectorAll('[data-reveal]');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
