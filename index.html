@@ -767,11 +767,11 @@
   }
   .service:hover .service-photo{ transform: translateY(-5px); box-shadow: 0 20px 40px rgba(16,22,29,0.25); }
   .service-photo img{
-    width: 100%; height: 100%; object-fit: cover; display: block;
+    width: 100%; height: 100%; object-fit: contain; display: block;
     filter: grayscale(15%) contrast(1.05);
     transition: transform .8s cubic-bezier(.2,.7,.3,1);
   }
-  .service:hover .service-photo img{ transform: scale(1.09); }
+  .service:hover .service-photo img{ transform: scale(1.05); }
   .service-photo.img-pending{
     background: repeating-linear-gradient(135deg, rgba(236,238,239,0.06) 0 2px, transparent 2px 14px), var(--asphalt-2);
   }
