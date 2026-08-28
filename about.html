@@ -222,7 +222,20 @@
   .nav-links a:hover::after{ width: 100%; }
   .nav-links a.current{ color: var(--green); }
   .nav-links a.current::after{ width: 100%; }
-  .nav-cta{ display:flex; align-items:center; gap: var(--space-3); }
+  .nav-cta{ display:flex; align-items:center; gap: var(--space-4); }
+  .nav-phone{
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    color: var(--steel-dark);
+    transition: color .25s ease;
+    white-space: nowrap;
+  }
+  .nav-phone:hover{ color: var(--green); }
+  .nav-book-btn{
+    padding: 0.65em 1.3em;
+    font-size: 0.76rem;
+  }
 
   .burger{
     position: relative;
@@ -515,6 +528,7 @@
   @media (max-width: 900px){
     .wrap{ padding: 0 var(--space-3); }
     .nav-links{ display:none; }
+    .nav-phone, .nav-book-btn{ display:none; }
     .burger{ display:flex; }
     .about-hero{ padding: calc(var(--space-6) + 2.2rem) 0 var(--space-5); }
     .founder-grid{ grid-template-columns: 1fr; }
@@ -567,6 +581,8 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta">
+        <a href="tel:07025610836" class="nav-phone">0702 561 0836</a>
+        <a href="https://wa.me/2347025610836?text=Hello%20D-General%2C%20I%27d%20like%20to%20enquire%20about%20your%20transport%20services." class="btn btn-primary nav-book-btn">Book Now</a>
         <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
